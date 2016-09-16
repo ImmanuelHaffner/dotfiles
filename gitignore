@@ -1,0 +1,72 @@
+# Custom Vim stuff
+.*.swo
+.*.swp
+.clang_complete
+.project.vim
+.session.vim
+.ycm_extra_conf.py
+project.debug
+
+# ctags
+tags
+
+# Make
+default.cfg
+
+# Archives
+*.7z
+*.rar
+*.tar
+*.zip
+
+# Binaries
+*.bin
+*.exe
+
+# Documents
+*.odt
+*.pdf
+*.ps
+
+# Images
+*.jpeg
+*.jpg
+*.png
+*.psd
+*.tiff
+
+# Audio
+*.flac
+*.mp2
+*.mp3
+*.ogg
+*.wav
+
+# Videos
+*.avi
+*.flv
+*.mkv
+*.mp4
+*.mpeg
+*.mpg
+
+# LaTeX stuff
+*.aux
+*.bcf
+*.fdb_latexmk
+*.fls
+*.log
+*.nav
+*.out
+*.run.xml
+*.snm
+*.synctex.gz
+*.toc
+*.vrb
+
+# C/C++
+*.o
+
+# Python
+.*.pyc
+__pycache__
