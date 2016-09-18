@@ -1,16 +1,16 @@
-.PHONY: XXX all nvim zshrc git sig
+.PHONY: XXX install nvim zshrc git sig
 
 
 XXX:
-	$(error Missing target. Use 'make all' to install all targets)
+	$(error Missing target. Use 'make install' to install all targets)
 
-all: nvim zshrc git signature
+install: nvim zshrc git sig
 
 nvim:
-	@make -C neovimrc/
+	@make -C neovimrc/ install
 
 zshrc:
-	@make -C zshrc/
+	@make -C zshrc/ install
 
 git:
 	cp -f gitconfig ~/.gitconfig
