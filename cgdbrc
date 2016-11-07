@@ -1,0 +1,11 @@
+set as=long
+highlight SelectedLineNr cterm=reverse ctermfg=Yellow ctermbg=Black
+map <esc> i<space>
+map <tab> i<space>
+map r :run<CR>
+map c :continue<CR>
+map f :finish<CR>
+map n :next<CR>
+map s :step<CR>
+map u :up<CR>
+map d :down<CR>

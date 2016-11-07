@@ -1,4 +1,4 @@
-.PHONY: XXX install nvim zshrc git sig
+.PHONY: XXX install nvim zshrc git sig cgdb
 
 
 XXX:
@@ -13,8 +13,12 @@ zshrc:
 	@make -C zshrc/ install
 
 git:
-	cp -f gitconfig ~/.gitconfig
-	cp -f gitignore ~/.gitignore
+	cp -f gitconfig "${HOME}/.gitconfig"
+	cp -f gitignore "${HOME}/.gitignore"
 
 sig:
-	cp -f signature.html ~/.signature.html
+	cp -f signature.html "${HOME}/.signature.html"
+
+cgdb:
+	mkdir -p "${HOME}/.cgdb"
+	cp -f cgdbrc "${HOME}/.cgdb/cgdbrc"
