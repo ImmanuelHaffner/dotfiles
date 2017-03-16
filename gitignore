@@ -66,6 +66,8 @@ default.cfg
 
 # C/C++
 *.o
+*.a
+*.d
 
 # Python
 .*.pyc
