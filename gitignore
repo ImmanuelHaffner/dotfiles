@@ -9,7 +9,7 @@ project.debug
 .clang
 
 # ctags
-tags
+.tags
 
 # Make
 default.cfg
