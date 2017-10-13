@@ -6,9 +6,10 @@
 .session.vim
 .ycm_extra_conf.py
 project.debug
+.clang
 
 # ctags
-tags
+.tags
 
 # Make
 default.cfg
@@ -63,10 +64,21 @@ default.cfg
 *.synctex.gz
 *.toc
 *.vrb
+*.bbl
+*.blg
 
 # C/C++
 *.o
+*.a
+*.d
 
 # Python
 .*.pyc
 __pycache__
+
+# Perf
+perf.data*
+*.perf
+
+# Dia
+*.dia~

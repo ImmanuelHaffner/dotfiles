@@ -1,6 +1,6 @@
 [user]
     name = Immanuel Haffner
-    email = haffner@cs.uni-saarland.de
+    email = haffner.immanuel@gmail.com
 [core]
     excludesfile = /home/immanuel/.gitignore
     autocrlf = input
