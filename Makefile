@@ -4,7 +4,7 @@
 XXX:
 	$(error Missing target. Use 'make install' to install all targets)
 
-install: nvim zshrc git sig
+install: nvim zshrc git sig zathura
 
 nvim:
 	@make -C neovimrc/ install
@@ -23,3 +23,7 @@ sig:
 cgdb:
 	mkdir -p "${HOME}/.cgdb"
 	cp -f cgdbrc "${HOME}/.cgdb/cgdbrc"
+
+zathura:
+	mkdir -p "${HOME}/.config/zathura"
+	cp -f zathurarc "${HOME}/.config/zathura/zathurarc"
