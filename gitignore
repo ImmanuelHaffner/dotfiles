@@ -82,3 +82,6 @@ perf.data*
 
 # Dia
 *.dia~
+
+# Valgrind
+vgcore.*
