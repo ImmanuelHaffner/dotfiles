@@ -25,6 +25,7 @@ default.cfg
 *.exe
 
 # Documents
+.~lock.*#
 *.odt
 *.pdf
 *.ps
