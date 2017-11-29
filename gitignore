@@ -86,3 +86,4 @@ perf.data*
 
 # Valgrind
 vgcore.*
+callgrind.out.*
