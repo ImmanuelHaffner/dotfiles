@@ -87,3 +87,9 @@ perf.data*
 # Valgrind
 vgcore.*
 callgrind.out.*
+
+# BitBucket
+*.hg
+
+# Mac
+.DS_Store
