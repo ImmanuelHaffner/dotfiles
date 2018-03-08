@@ -1,0 +1,27 @@
+config.load_autoconfig()
+
+# Zoom
+c.zoom.default      = '50%'
+
+# Fonts
+c.fonts.completion.category = "bold 6pt monospace"
+c.fonts.completion.entry    = "6pt monospace"
+c.fonts.debug_console       = "6pt monospace"
+c.fonts.downloads           = "6pt monospace"
+c.fonts.hints               = "bold 6pt monospace"
+c.fonts.keyhint             = "6pt sans-serif"
+c.fonts.messages.error      = "6pt monospace"
+c.fonts.messages.info       = "6pt monospace"
+c.fonts.messages.warning    = "6pt monospace"
+c.fonts.prompts             = "6pt sans-serif"
+c.fonts.statusbar           = "6pt monospace"
+c.fonts.tabs                = "8pt monospace"
+
+# Search engines
+c.url.searchengines.update({
+    'duck':     'https://duckduckgo.com/?q={}&ia=web',
+    'gg':       'https://www.google.de/search?q={}',
+    'arch':     'https://wiki.archlinux.org/index.php?search={}',
+    'clang':    'https://duckduckgo.com/?q=\site:clang.llvm.org/doxygen+{}&ia=web',
+    'llvm':     'https://duckduckgo.com/?q=\site:llvm.org/doxygen+{}&ia=web',
+    })

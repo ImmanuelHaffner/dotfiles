@@ -4,7 +4,7 @@
 XXX:
 	$(error Missing target. Use 'make install' to install all targets)
 
-install: nvim zshrc git sig zathura
+install: nvim zshrc git sig zathura qutebrowser
 
 nvim:
 	@make -C neovimrc/ install
@@ -27,3 +27,7 @@ cgdb:
 zathura:
 	mkdir -p "${HOME}/.config/zathura"
 	cp -f zathurarc "${HOME}/.config/zathura/zathurarc"
+
+qutebrowser:
+	mkdir -p "${HOME}/.config/qutebrowser"
+	cp -f qutebrowser.py "${HOME}/.config/qutebrowser/config.py"
