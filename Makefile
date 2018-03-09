@@ -17,7 +17,7 @@ git:
 	cp -f gitignore "${HOME}/.gitignore"
 
 sig:
-	cp -f infosys.sig.html "${HOME}/.infosys.sig.html"
+	cp -f bigdata.sig.html "${HOME}/.bigdata.sig.html"
 	cp -f private.sig.html "${HOME}/.private.sig.html"
 
 cgdb:
