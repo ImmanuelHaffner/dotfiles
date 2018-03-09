@@ -22,6 +22,9 @@ c.url.searchengines.update({
     'duck':     'https://duckduckgo.com/?q={}&ia=web',
     'gg':       'https://www.google.de/search?q={}',
     'arch':     'https://wiki.archlinux.org/index.php?search={}',
-    'clang':    'https://duckduckgo.com/?q=\site:clang.llvm.org/doxygen+{}&ia=web',
-    'llvm':     'https://duckduckgo.com/?q=\site:llvm.org/doxygen+{}&ia=web',
+    'clang':    'https://duckduckgo.com/?q=\site:clang.llvm.org/doxygen+{}',
+    'llvm':     'https://duckduckgo.com/?q=\site:llvm.org/doxygen+{}',
+    'aio':      'http://www.aiosearch.com/search/4/Torrents/{}/',
+    'we':       'https://en.wikipedia.org/wiki/{}',
+    'cpp':      'http://en.cppreference.com/mwiki/index.php?search={}',
     })
