@@ -34,4 +34,5 @@ c.url.searchengines.update({
     'dict':     'https://www.dict.cc/?s={}',
     'leo':      'https://dict.leo.org/german-english/{}',
     'ling':     'https://www.linguee.com/english-german/search?source=auto&query={}',
+    'yt':       'https://www.youtube.com/results?search_query={}',
     })
