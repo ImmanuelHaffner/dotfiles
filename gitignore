@@ -19,6 +19,7 @@ default.cfg
 *.rar
 *.tar
 *.zip
+*.tar*
 
 # Binaries
 *.bin
