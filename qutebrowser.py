@@ -35,4 +35,6 @@ c.url.searchengines.update({
     'leo':      'https://dict.leo.org/german-english/{}',
     'ling':     'https://www.linguee.com/english-german/search?source=auto&query={}',
     'yt':       'https://www.youtube.com/results?search_query={}',
+    'wolfram':  'https://www.wolframalpha.com/input/?i={}',
+    'py':       'https://docs.python.org/3/search.html?q={}&check_keywords=yes',
     })
