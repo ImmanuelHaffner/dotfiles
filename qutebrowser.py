@@ -1,7 +1,7 @@
 config.load_autoconfig()
 
 # Zoom
-c.zoom.default      = '50%'
+c.zoom.default      = '75%'
 
 # Fonts
 c.fonts.completion.category = "bold 6pt monospace"
