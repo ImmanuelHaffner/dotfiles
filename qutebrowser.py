@@ -372,8 +372,8 @@ c.fonts.messages.error      = "7pt monospace"
 c.fonts.messages.info       = "7pt monospace"
 c.fonts.messages.warning    = "7pt monospace"
 c.fonts.prompts             = "7pt sans-serif"
-c.fonts.statusbar           = "9pt monospace"
-c.fonts.tabs                = "9pt monospace"
+c.fonts.statusbar           = "8pt monospace"
+c.fonts.tabs                = "8pt monospace"
 
 # Search engines
 c.url.searchengines.update({
