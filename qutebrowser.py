@@ -397,3 +397,6 @@ c.url.searchengines.update({
     'wolfram':  'https://www.wolframalpha.com/input/?i={}',
     'py':       'https://docs.python.org/3/search.html?q={}&check_keywords=yes',
     })
+
+# External Editor
+c.editor.command = ['/usr/bin/sakura', '-e', '/usr/bin/nvim', '--noplugin', '{}']
