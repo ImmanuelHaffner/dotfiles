@@ -379,6 +379,7 @@ c.fonts.tabs                = "8pt monospace"
 c.url.searchengines.update({
     'duck':     'https://duckduckgo.com/?q={}&ia=web',
     'gg':       'https://www.google.de/search?q={}',
+    'map':       'https://www.google.com/maps/place/{}',
     'arch':     'https://wiki.archlinux.org/index.php?search={}',
     'clang':    'https://duckduckgo.com/?q=\\site:clang.llvm.org/doxygen+{}',
     'llvm':     'https://duckduckgo.com/?q=\\site:llvm.org/doxygen+{}',
