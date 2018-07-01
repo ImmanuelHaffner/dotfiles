@@ -1,7 +1,7 @@
 config.load_autoconfig()
 
 # Zoom
-c.zoom.default      = '50%'
+c.zoom.default      = '75%'
 
 # User CSS
 # c.content.user_stylesheets = ['css/solarized-dark-all-sites.css']
