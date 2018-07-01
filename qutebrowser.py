@@ -401,6 +401,7 @@ c.url.searchengines.update({
     'wolfram':  'https://www.wolframalpha.com/input/?i={}',
     'py':       'https://docs.python.org/3/search.html?q={}&check_keywords=yes',
     'nzb':      'https://www.binsearch.info/?q={}&max=250&adv_age=1100&server=',
+    'acm':      'https://dl.acm.org/results.cfm?query={}'
     })
 
 # External Editor
