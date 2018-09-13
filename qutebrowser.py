@@ -1,7 +1,21 @@
 config.load_autoconfig()
 
 # Zoom
-c.zoom.default      = '75%'
+c.zoom.default      = '50%'
+
+# Fonts
+c.fonts.completion.category = "bold 6pt monospace"
+c.fonts.completion.entry    = "6pt monospace"
+c.fonts.debug_console       = "6pt monospace"
+c.fonts.downloads           = "6pt monospace"
+c.fonts.hints               = "bold 6pt monospace"
+c.fonts.keyhint             = "6pt sans-serif"
+c.fonts.messages.error      = "6pt monospace"
+c.fonts.messages.info       = "6pt monospace"
+c.fonts.messages.warning    = "6pt monospace"
+c.fonts.prompts             = "6pt sans-serif"
+c.fonts.statusbar           = "7pt monospace"
+c.fonts.tabs                = "7pt monospace"
 
 # User CSS
 # c.content.user_stylesheets = ['css/solarized-dark-all-sites.css']
@@ -362,21 +376,6 @@ c.colors.tabs.selected.odd.fg = solarized['base3']
 ## color)
 ## Type: QtColor
 # c.colors.webpage.bg = 'white'
-
-
-# Fonts
-c.fonts.completion.category = "bold 6pt monospace"
-c.fonts.completion.entry    = "6pt monospace"
-c.fonts.debug_console       = "6pt monospace"
-c.fonts.downloads           = "6pt monospace"
-c.fonts.hints               = "bold 6pt monospace"
-c.fonts.keyhint             = "6pt sans-serif"
-c.fonts.messages.error      = "6pt monospace"
-c.fonts.messages.info       = "6pt monospace"
-c.fonts.messages.warning    = "6pt monospace"
-c.fonts.prompts             = "6pt sans-serif"
-c.fonts.statusbar           = "7pt monospace"
-c.fonts.tabs                = "7pt monospace"
 
 # Search engines
 c.url.searchengines.update({
