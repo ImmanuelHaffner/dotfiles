@@ -389,7 +389,7 @@ c.url.searchengines.update({
     'we':       'https://en.wikipedia.org/wiki/{}',
     'wd':       'https://de.wikipedia.org/wiki/{}',
     'cpp':      'http://en.cppreference.com/mwiki/index.php?search={}',
-    'amazon':   'https://smile.amazon.de/s/ref=nb_sb_noss_2?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&url=search-alias%3Daps&field-keywords={}',
+    'amazon':   'https://smile.amazon.de/s/ref=nb_sb_noss_2?url=search-alias%3Daps&field-keywords={}',
     'dblp':     'https://dblp.uni-trier.de/search?q={}',
     'gs':       'https://scholar.google.de/scholar?q={}',
     'steamdb':  'https://steamdb.info/search/?a=app&q={}',
