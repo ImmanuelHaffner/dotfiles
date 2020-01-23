@@ -379,9 +379,10 @@ c.colors.tabs.selected.odd.fg = solarized['base3']
 
 # Search engines
 c.url.searchengines.update({
+    'DEFAULT':  'https://www.google.de/search?q={}',
+    'gg':       'https://www.google.de/search?q={}',
     'duck':     'https://duckduckgo.com/?q={}&ia=web',
     'eco':      'https://www.ecosia.org/search?q={}',
-    'gg':       'https://www.google.de/search?q={}',
     'map':      'https://www.google.com/maps/place/{}',
     'arch':     'https://wiki.archlinux.org/index.php?search={}',
     'clang':    'https://duckduckgo.com/?q=\\site:clang.llvm.org/doxygen+{}',
