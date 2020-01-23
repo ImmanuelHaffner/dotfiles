@@ -1,6 +1,7 @@
 # Custom Vim stuff
 .*.swo
 .*.swp
+*.tu
 .clang_complete
 .project.vim
 .session.vim
