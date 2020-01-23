@@ -405,6 +405,8 @@ c.url.searchengines.update({
     'nzb':      'https://www.binsearch.info/?q={}&max=250&adv_age=1100&server=',
     'ghub':     'https://github.com/search?q={}',
     'hy':       'https://www.hyphenation24.com/word/{}/',
+    'dhl':      'https://www.dhl.de/en/privatkunden/pakete-empfangen/verfolgen.html?piececode={}',
+    'duden':    'https://www.duden.de/suchen/dudenonline/{}',
     })
 
 # External Editor
