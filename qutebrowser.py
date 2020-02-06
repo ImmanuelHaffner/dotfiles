@@ -1,21 +1,21 @@
 config.load_autoconfig()
 
 # Zoom
-c.zoom.default      = '125%'
+c.zoom.default      = '75%'
 
 # Fonts
-c.fonts.completion.category = "bold 10pt monospace"
-c.fonts.completion.entry    = "10pt monospace"
-c.fonts.debug_console       = "10pt monospace"
-c.fonts.downloads           = "10pt monospace"
-c.fonts.hints               = "bold 10pt monospace"
-c.fonts.keyhint             = "10pt sans-serif"
-c.fonts.messages.error      = "10pt monospace"
-c.fonts.messages.info       = "10pt monospace"
-c.fonts.messages.warning    = "10pt monospace"
-c.fonts.prompts             = "10pt sans-serif"
-c.fonts.statusbar           = "11pt monospace"
-c.fonts.tabs                = "11pt monospace"
+c.fonts.completion.category = "bold 8pt monospace"
+c.fonts.completion.entry    = "8pt monospace"
+c.fonts.debug_console       = "8pt monospace"
+c.fonts.downloads           = "8pt monospace"
+c.fonts.hints               = "bold 8pt monospace"
+c.fonts.keyhint             = "8pt sans-serif"
+c.fonts.messages.error      = "8pt monospace"
+c.fonts.messages.info       = "8pt monospace"
+c.fonts.messages.warning    = "8pt monospace"
+c.fonts.prompts             = "8pt sans-serif"
+c.fonts.statusbar           = "9pt monospace"
+c.fonts.tabs                = "9pt monospace"
 
 # User CSS
 # c.content.user_stylesheets = ['css/solarized-dark-all-sites.css']
