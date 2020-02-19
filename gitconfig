@@ -26,7 +26,7 @@
     ui = auto
 [alias]
     d = difftool
-    conflict = !nvim -c '/^[<=|>]\\{7\\}' $(git ls-files --unmerged | cut -c 51- | uniq)
+    conflict = !nvim -c '/^[<=|>]\\{7\\}' -p $(git ls-files --unmerged | cut -c 51- | uniq)
     upbase = rebase @{u}
     long = log --stat --decorate --graph
     lg = log --graph --format=format:'%C(bold yellow reverse)%h%C(reset) %C(bold white)— %C(bold red)%an%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(auto)%d%C(reset)%n''          %C(reset)%w(120,0,10)%s' --abbrev-commit
