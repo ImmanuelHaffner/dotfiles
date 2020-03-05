@@ -44,3 +44,5 @@
     get = fetch --all --recurse-submodules --tags
     bvv = branch -vv
     stat = diff --stat
+[commit]
+    gpgsign = true
