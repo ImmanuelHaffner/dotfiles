@@ -37,8 +37,6 @@
     co = checkout
     da = diff HEAD
     dx = diff --cached
-    adu = add -u
-    ada = add -A
     ci = commit -v
     ca  = commit -a -v
     get = fetch --all --recurse-submodules --tags
