@@ -42,5 +42,6 @@
     get = fetch --all --recurse-submodules --tags
     bvv = branch -vv
     stat = diff --stat
+    mwps = push -o merge_request.create -o merge_request.target=master -o merge_request.merge_when_pipeline_succeeds
 [commit]
     gpgsign = true
