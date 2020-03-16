@@ -410,4 +410,4 @@ c.url.searchengines.update({
     })
 
 # External Editor
-c.editor.command = ['/usr/bin/sakura', '-e', '/usr/bin/nvim', '--noplugin', '{}']
+c.editor.command = ['/usr/bin/sakura', '-e', '/usr/bin/nvim', '{}']
