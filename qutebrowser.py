@@ -411,3 +411,6 @@ c.url.searchengines.update({
 
 # External Editor
 c.editor.command = ['/usr/bin/sakura', '-e', '/usr/bin/nvim', '{}']
+
+c.aliases = { 'l': 'session-load' }
+config.bind('<Ctrl-q>', 'session-save ;; quit')
