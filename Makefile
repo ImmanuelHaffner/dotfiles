@@ -32,3 +32,6 @@ zathura:
 qutebrowser:
 	mkdir -p "${HOME}/.config/qutebrowser"
 	cp -f qutebrowser.py "${HOME}/.config/qutebrowser/config.py"
+	-xdg-settings set default-web-browser org.qutebrowser.qutebrowser.desktop
+	-xdg-mime default qutebrowser.desktop x-scheme-handler/http
+	-xdg-mime default qutebrowser.desktop x-scheme-handler/https
