@@ -4,7 +4,7 @@
 XXX:
 	$(error Missing target. Use 'make install' to install all targets)
 
-install: nvim zshrc git sig zathura qutebrowser
+install: nvim zshrc git sig cgdb zathura qutebrowser
 
 nvim:
 	@make -C neovimrc/ install
