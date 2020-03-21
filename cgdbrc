@@ -1,7 +1,18 @@
-set as=long
+set autosourcereload
+set hlsearch
+set ignorecase
+set selectedlinedisplay=highlight
+set tabstop=4
+set winminheight=10
+set winminwidth=81
+set winsplit=src_big
+set winsplitorientation=vertical
+set nowrapscan
+
 highlight SelectedLineNr cterm=reverse ctermfg=Yellow ctermbg=Black
-map <esc> i<space>
-map <tab> i<space>
+
+map <esc> i
+map <tab> i
 map r :run<CR>
 map c :continue<CR>
 map f :finish<CR>
