@@ -407,6 +407,7 @@ c.url.searchengines.update({
     'hy':       'https://www.hyphenation24.com/word/{}/',
     'dhl':      'https://www.dhl.de/en/privatkunden/pakete-empfangen/verfolgen.html?piececode={}',
     'duden':    'https://www.duden.de/suchen/dudenonline/{}',
+    'fa':       'https://fontawesome.com/icons?d=gallery&q={}',
     })
 
 # External Editor
