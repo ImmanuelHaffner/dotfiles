@@ -1,4 +1,4 @@
-.PHONY: XXX install nvim zshrc git sig cgdb
+.PHONY: XXX install nvim zshrc git sig cgdb ctags
 
 
 XXX:
@@ -35,3 +35,6 @@ qutebrowser:
 	-xdg-settings set default-web-browser org.qutebrowser.qutebrowser.desktop
 	-xdg-mime default org.qutebrowser.qutebrowser.desktop x-scheme-handler/http
 	-xdg-mime default org.qutebrowser.qutebrowser.desktop x-scheme-handler/https
+
+ctags:
+	cp -f ctags ~/.ctags
