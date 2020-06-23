@@ -3,8 +3,6 @@ set hlsearch
 set ignorecase
 set selectedlinedisplay=highlight
 set tabstop=4
-set winminheight=10
-set winminwidth=81
 set winsplit=src_big
 set winsplitorientation=vertical
 set nowrapscan
