@@ -408,6 +408,7 @@ c.url.searchengines.update({
     'dhl':      'https://www.dhl.de/en/privatkunden/pakete-empfangen/verfolgen.html?piececode={}',
     'duden':    'https://www.duden.de/suchen/dudenonline/{}',
     'fa':       'https://fontawesome.com/icons?d=gallery&q={}',
+    'intrin':   'https://software.intel.com/sites/landingpage/IntrinsicsGuide/#text={}',
     })
 
 # External Editor
