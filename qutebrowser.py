@@ -410,6 +410,7 @@ c.url.searchengines.update({
     'duden':    'https://www.duden.de/suchen/dudenonline/{}',
     'fa':       'https://fontawesome.com/icons?d=gallery&q={}',
     'intrin':   'https://software.intel.com/sites/landingpage/IntrinsicsGuide/#text={}',
+    'stock':    'https://www.finanzen.net/suchergebnis.asp?_search={}',
     })
 
 # External Editor
