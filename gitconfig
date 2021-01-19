@@ -1,3 +1,4 @@
+# vim: filetype=gitconfig:
 [user]
     name = Immanuel Haffner
     email = haffner.immanuel@gmail.com
@@ -45,3 +46,6 @@
     mwps = push -o merge_request.create -o merge_request.target=master -o merge_request.merge_when_pipeline_succeeds
 [commit]
     gpgsign = true
+[rerere]
+    enabled = true
+    autoupdate = true
