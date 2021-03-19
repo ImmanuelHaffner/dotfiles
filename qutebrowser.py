@@ -4,20 +4,23 @@ config.load_autoconfig()
 # Enable Qt auto scaling by globally setting QT_AUTO_SCREEN_SCALE_FACTOR=1 (e.g. in /etc/profile)
 c.zoom.default      = '75%'
 
+c.colors.webpage.preferred_color_scheme = 'dark'
+c.colors.wegpage.darkmode.policy.images = 'smart'
+
 # Fonts
-c.fonts.completion.category = "bold 9pt monospace"
-c.fonts.completion.entry    = "9pt monospace"
-c.fonts.debug_console       = "9pt monospace"
-c.fonts.downloads           = "9pt monospace"
-c.fonts.hints               = "bold 9pt monospace"
-c.fonts.keyhint             = "9pt sans-serif"
-c.fonts.messages.error      = "9pt monospace"
-c.fonts.messages.info       = "9pt monospace"
-c.fonts.messages.warning    = "9pt monospace"
-c.fonts.prompts             = "9pt sans-serif"
-c.fonts.statusbar           = "10pt monospace"
-c.fonts.tabs.selected       = "10pt monospace"
-c.fonts.tabs.unselected     = "10pt monospace"
+c.fonts.completion.category = 'bold 9pt monospace'
+c.fonts.completion.entry    = '9pt monospace'
+c.fonts.debug_console       = '9pt monospace'
+c.fonts.downloads           = '9pt monospace'
+c.fonts.hints               = 'bold 9pt monospace'
+c.fonts.keyhint             = '9pt sans-serif'
+c.fonts.messages.error      = '9pt monospace'
+c.fonts.messages.info       = '9pt monospace'
+c.fonts.messages.warning    = '9pt monospace'
+c.fonts.prompts             = '9pt sans-serif'
+c.fonts.statusbar           = '10pt monospace'
+c.fonts.tabs.selected       = '10pt monospace'
+c.fonts.tabs.unselected     = '10pt monospace'
 
 # User CSS
 # c.content.user_stylesheets = ['css/solarized-dark-all-sites.css']
