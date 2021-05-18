@@ -421,6 +421,7 @@ c.url.searchengines.update({
     'fa':       'https://fontawesome.com/icons?d=gallery&q={}',
     'intrin':   'https://software.intel.com/sites/landingpage/IntrinsicsGuide/#text={}',
     'stock':    'https://www.finanzen.net/suchergebnis.asp?_search={}',
+    'tex':      'https://duckduckgo.com/?q=\\site:www.weinelt.de/latex/+{}',
     })
 
 # External Editor
