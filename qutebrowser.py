@@ -382,6 +382,12 @@ c.colors.tabs.selected.odd.fg = solarized['base3']
 ## Type: QtColor
 # c.colors.webpage.bg = 'white'
 
+# SSL/TLS Certificate Error Handling
+c.content.tls.certificate_errors = 'ask-block-thirdparty' # ask for page loads with errors, automatically block resource loads
+
+# Notifications
+c.content.notifications.presenter = 'libnotify'
+
 # Search engines
 c.url.searchengines.update({
     'DEFAULT':  'https://www.google.de/search?q={}',
