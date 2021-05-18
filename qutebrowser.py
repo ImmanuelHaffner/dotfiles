@@ -5,7 +5,7 @@ config.load_autoconfig()
 c.zoom.default      = '75%'
 
 c.colors.webpage.preferred_color_scheme = 'dark'
-c.colors.wegpage.darkmode.policy.images = 'smart'
+#  c.colors.wegpage.darkmode.policy.images = 'smart'
 
 # Fonts
 c.fonts.completion.category = 'bold 9pt monospace'
