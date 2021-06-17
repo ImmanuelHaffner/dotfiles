@@ -32,6 +32,7 @@ default.cfg
 *.odt
 *.pdf
 *.ps
+*.pdfpc
 
 # Images
 *.jpeg
