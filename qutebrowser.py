@@ -388,6 +388,9 @@ c.content.tls.certificate_errors = 'ask-block-thirdparty' # ask for page loads w
 # Notifications
 c.content.notifications.presenter = 'libnotify'
 
+# Request sites to reduce non-essential motions
+c.content.prefers_reduced_motion = True
+
 # Search engines
 c.url.searchengines.update({
     'DEFAULT':  'https://www.google.de/search?q={}',
