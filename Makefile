@@ -1,11 +1,11 @@
-.PHONY: XXX install nvim zshrc git sig cgdb ctags
+.PHONY: XXX install nvim zshrc git sig cgdb zathura qutebrowser ctags screen latex
 
 
 XXX:
 	$(error Missing target. Use 'make install' to install all configurations or 'make <APP>' to install the \
         configuration for a specific app)
 
-install: nvim zshrc git sig cgdb zathura qutebrowser ctags screen
+install: nvim zshrc git sig cgdb zathura qutebrowser ctags screen latex
 
 nvim:
 	@make -C neovimrc/ install
@@ -42,3 +42,6 @@ ctags:
 
 screen:
 	cp -f screenrc "${HOME}/.screenrc"
+
+latex:
+	cp -f latexmkrc "${HOME}/.latexmkrc"
