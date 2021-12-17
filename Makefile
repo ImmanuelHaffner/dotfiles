@@ -2,9 +2,10 @@
 
 
 XXX:
-	$(error Missing target. Use 'make install' to install all targets)
+	$(error Missing target. Use 'make install' to install all configurations or 'make <APP>' to install the \
+        configuration for a specific app)
 
-install: nvim zshrc git sig cgdb zathura qutebrowser
+install: nvim zshrc git sig cgdb zathura qutebrowser ctags screen
 
 nvim:
 	@make -C neovimrc/ install
@@ -37,4 +38,7 @@ qutebrowser:
 	-xdg-mime default org.qutebrowser.qutebrowser.desktop x-scheme-handler/https
 
 ctags:
-	cp -f ctags ~/.ctags
+	cp -f ctags "${HOME}/.ctags"
+
+screen:
+	cp -f screenrc "${HOME}/.screenrc"
