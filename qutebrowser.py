@@ -2,7 +2,7 @@ config.load_autoconfig()
 
 # Zoom factor
 # Enable Qt auto scaling by globally setting QT_AUTO_SCREEN_SCALE_FACTOR=1 (e.g. in /etc/profile)
-c.zoom.default      = '75%'
+c.zoom.default      = '100%'
 
 c.colors.webpage.preferred_color_scheme = 'dark'
 #  c.colors.wegpage.darkmode.policy.images = 'smart'
