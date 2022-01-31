@@ -16,7 +16,7 @@ zshrc:
 git:
 	cp -f gitconfig "${HOME}/.gitconfig"
 	cp -f gitignore "${HOME}/.gitignore"
-	git config --global user.signingkey $(shell gpg --list-secret-keys --keyid-format LONG "haffner.immanuel@gmail.com" | grep sec | cut --delimiter='/' -f 2 | cut --delimiter=' ' -f 1)
+	-git config --global user.signingkey $(shell gpg --list-secret-keys --keyid-format LONG "haffner.immanuel@gmail.com" | grep sec | cut --delimiter='/' -f 2 | cut --delimiter=' ' -f 1)
 
 sig:
 	cp -f bigdata.sig.html "${HOME}/.bigdata.sig.html"
