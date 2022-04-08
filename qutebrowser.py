@@ -402,7 +402,7 @@ c.url.searchengines.update({
     'clang':    'https://duckduckgo.com/?q=\\site:clang.llvm.org/doxygen+{}',
     'llvm':     'https://duckduckgo.com/?q=\\site:llvm.org/doxygen+{}',
     'aio':      'http://www.aiosearch.com/search/4/Torrents/{}/',
-    'we':       'https://en.wikipedia.org/wiki/{}',
+    'we':     'https://en.wikipedia.org/w/index.php?search={}&fulltext=1',
     'wd':       'https://de.wikipedia.org/wiki/{}',
     'cpp':      'http://en.cppreference.com/mwiki/index.php?search={}',
     'amazon':   'https://smile.amazon.de/s/ref=nb_sb_noss_2?url=search-alias%3Daps&field-keywords={}',
