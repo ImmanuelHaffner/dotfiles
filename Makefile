@@ -1,4 +1,4 @@
-.PHONY: XXX install nvim zshrc git sig cgdb zathura qutebrowser ctags screen latex
+.PHONY: XXX install nvim zshrc git sig cgdb zathura qutebrowser ctags screen latex xcompose
 
 
 XXX:
@@ -45,3 +45,6 @@ screen:
 
 latex:
 	cp -f latexmkrc "${HOME}/.latexmkrc"
+
+xcompose:
+	cp -f XCompose "${HOME}/.XCompose"
