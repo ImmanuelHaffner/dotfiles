@@ -2,7 +2,22 @@
 
 
 ### Based on the en_US.UTF locale. ###
-include "/usr/share/X11/locale/en_US.UTF-8/Compose"
+# include "/usr/share/X11/locale/en_US.UTF-8/Compose"
+
+# Umlauts
+<Multi_key> <quotedbl> <A>      : "Ä"    Adiaeresis # LATIN CAPITAL LETTER A WITH DIAERESIS
+<Multi_key> <A> <quotedbl>      : "Ä"    Adiaeresis # LATIN CAPITAL LETTER A WITH DIAERESIS
+<Multi_key> <quotedbl> <a>      : "ä"    Adiaeresis # LATIN CAPITAL LETTER A WITH DIAERESIS
+<Multi_key> <a> <quotedbl>      : "ä"    Adiaeresis # LATIN CAPITAL LETTER A WITH DIAERESIS
+<Multi_key> <quotedbl> <O>      : "Ö"    Odiaeresis # LATIN CAPITAL LETTER O WITH DIAERESIS
+<Multi_key> <O> <quotedbl>      : "Ö"    Odiaeresis # LATIN CAPITAL LETTER O WITH DIAERESIS
+<Multi_key> <quotedbl> <o>      : "ö"    Odiaeresis # LATIN CAPITAL LETTER O WITH DIAERESIS
+<Multi_key> <o> <quotedbl>      : "ö"    Odiaeresis # LATIN CAPITAL LETTER O WITH DIAERESIS
+<Multi_key> <quotedbl> <U>      : "Ü"    Udiaeresis # LATIN CAPITAL LETTER U WITH DIAERESIS
+<Multi_key> <U> <quotedbl>      : "Ü"    Udiaeresis # LATIN CAPITAL LETTER U WITH DIAERESIS
+<Multi_key> <quotedbl> <u>      : "ü"    Udiaeresis # LATIN CAPITAL LETTER U WITH DIAERESIS
+<Multi_key> <u> <quotedbl>      : "ü"    Udiaeresis # LATIN CAPITAL LETTER U WITH DIAERESIS
+<Multi_key> <s> <s>             : "ß"    ssharp # LATIN SMALL LETTER SHARP S
 
 
 ### Populated with Kragen's additions. ###
