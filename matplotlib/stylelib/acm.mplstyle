@@ -1,5 +1,35 @@
 # vim: set filetype=sh:
 
+
+## ***************************************************************************
+## * LINES                                                                   *
+## ***************************************************************************
+## See https://matplotlib.org/api/artist_api.html#module-matplotlib.lines
+## for more information on line properties.
+
+lines.markersize: 1.5
+
+
+## ***************************************************************************
+## * PATCHES                                                                 *
+## ***************************************************************************
+## Patches are graphical objects that fill 2D space, like polygons or circles.
+## See https://matplotlib.org/api/artist_api.html#module-matplotlib.patches
+## for more information on patch properties.
+patch.linewidth: 0.1
+
+
+## ***************************************************************************
+## * BOXPLOT                                                                 *
+## ***************************************************************************
+
+boxplot.patchartist: True
+boxplot.boxprops.linewidth: 0
+boxplot.whiskerprops.linewidth: 0.1
+boxplot.capprops.linewidth: 0.1
+boxplot.medianprops.linewidth: 0.1
+
+
 ## ***************************************************************************
 ## * FONT                                                                    *
 ## ***************************************************************************
@@ -96,16 +126,22 @@ axes.labelpad: 2
 
 xtick.bottom: True
 xtick.major.size: 2.5
+xtick.minor.size: 1.5
 xtick.major.width: 0.4
+xtick.minor.width: 0.3
 xtick.major.pad: 2
+xtick.minor.pad: 2
 xtick.color: black
 xtick.labelsize: xx-small
 xtick.minor.visible: False
 
 ytick.left: True
 ytick.major.size: 2.5
+ytick.minor.size: 1.5
 ytick.major.width: 0.4
+ytick.minor.width: 0.3
 ytick.major.pad: 2
+ytick.minor.pad: 2
 ytick.labelsize: xx-small
 ytick.minor.visible: False
 
@@ -120,11 +156,15 @@ grid.linewidth: 0.4     # in points
 ## ***************************************************************************
 ## * LEGEND                                                                  *
 ## ***************************************************************************
+legend.frameon: True
+legend.framealpha: 1
+legend.edgecolor: black
 legend.fontsize: xx-small
 legend.handlelength: 0.75
-legend.handletextpad: .25
-legend.markerscale 0.75
+legend.handletextpad: 0.4
+legend.markerscale: 0.75
 legend.title_fontsize: x-small
+legend.columnspacing: 0.8
 
 
 ## ***************************************************************************
@@ -144,6 +184,8 @@ figure.dpi: 300
 ## background white
 
 savefig.dpi: figure
+savefig.format: pdf
 savefig.bbox: tight
-savefig.pad_inches: 0.1
+savefig.pad_inches: 0
 savefig.transparent: True
+pdf.fonttype: 42 # TrueType
