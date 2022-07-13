@@ -7,7 +7,7 @@
 ## See https://matplotlib.org/api/artist_api.html#module-matplotlib.lines
 ## for more information on line properties.
 
-lines.markersize: 1.5
+lines.linewidth: .8
 
 
 ## ***************************************************************************
@@ -162,7 +162,7 @@ legend.edgecolor: black
 legend.fontsize: xx-small
 legend.handlelength: 0.75
 legend.handletextpad: 0.4
-legend.markerscale: 0.75
+legend.markerscale: 1.2
 legend.title_fontsize: x-small
 legend.columnspacing: 0.8
 
