@@ -6,7 +6,11 @@
     excludesfile = /home/immanuel/.gitignore
     autocrlf = input
 [diff]
+    mnemonicPrefix = true # use descriptive initials (c/i/w)
+    renames = true # show renames
     tool = nvimdiff
+    colorMoved = dimmed-zebra
+    colorMovedWS = ignore-space-at-eol,ignore-space-change
 [difftool]
     prompt = true
 [difftool "nvimdiff"]
@@ -26,26 +30,38 @@
     branch = auto
     ui = auto
 [alias]
-    d = difftool
+    bvv = branch -vv
+    ca  = commit -a -v
+    cat = cat-file -p
+    ci = commit -v
+    co = checkout
     conflict = !nvim -c '/^[<=|>]\\{7\\}' -p $(git ls-files --unmerged | cut -c 51- | uniq)
-    upbase = rebase @{u}
-    long = log --stat --decorate --graph --show-signature
+    d = diff
+    dc = diff --cached
+    dh = diff HEAD
+    dt = difftool
+    get = fetch --all --recurse-submodules --tags --prune
     lg = log --graph --format=format:'%C(bold yellow reverse)%h%C(reset) %C(bold white)— %C(bold red)%an%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(auto)%d%C(reset)%n''          %C(reset)%w(120,0,10)%s' --abbrev-commit
     lga = log --all --graph --format=format:'%C(bold yellow reverse)%h%C(reset) %C(bold white)— %C(bold red)%an%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(auto)%d%C(reset)%n''          %C(reset)%w(120,0,10)%s' --abbrev-commit
-    cat = cat-file -p
-    di = diff
-    st = status
-    co = checkout
-    da = diff HEAD
-    dx = diff --cached
-    ci = commit -v
-    ca  = commit -a -v
-    get = fetch --all --recurse-submodules --tags --prune
-    bvv = branch -vv
-    stat = diff --stat
+    long = log --stat --decorate --graph --show-signature
     mwps = push -o merge_request.create -o merge_request.target=master
+    reword = commit --amend
+    st = status
+    stat = diff --stat
+    uncommit = reset --soft HEAD~1
+    untrack = rm --cache --
+    upbase = rebase @{u}
 [commit]
     gpgsign = true
 [rerere]
     enabled = true
     autoupdate = true
+[init]
+    defaultBranch = main
+[pull]
+    rebase = true
+[fetch]
+    prune = true
+    pruneTags = true
+[tag]
+    sort = version:refname # sort tags as version numbers, i.e. 1.2.0 before 1.10.2
