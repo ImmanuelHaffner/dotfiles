@@ -3,6 +3,7 @@
 .*.swp
 *.tu
 .clang_complete
+.project.lua
 .project.vim
 .project.zsh
 .session.vim
