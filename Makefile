@@ -1,4 +1,4 @@
-.PHONY: XXX install nvim zshrc git sig cgdb zathura qutebrowser ctags screen latex xcompose matplotlib
+.PHONY: XXX install nvim zshrc git sig cgdb zathura qutebrowser ctags screen latex xcompose matplotlib bin
 
 
 XXX:
@@ -51,3 +51,6 @@ xcompose:
 
 matplotlib:
 	cp -Rf matplotlib "${HOME}/.config/"
+
+bin:
+	cp -f uds-intranet "${HOME}/.local/bin/"
