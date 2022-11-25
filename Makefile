@@ -32,10 +32,11 @@ zathura:
 
 qutebrowser:
 	mkdir -p "${HOME}/.config/qutebrowser"
-	cp -f qutebrowser.py "${HOME}/.config/qutebrowser/config.py"
+	cp -f qutebrowser/qutebrowser.py "${HOME}/.config/qutebrowser/config.py"
 	-xdg-settings set default-web-browser org.qutebrowser.qutebrowser.desktop
 	-xdg-mime default org.qutebrowser.qutebrowser.desktop x-scheme-handler/http
 	-xdg-mime default org.qutebrowser.qutebrowser.desktop x-scheme-handler/https
+	cp -R qutebrowser/greasemonkey "${HOME}/.config/qutebrowser"
 
 ctags:
 	cp -f ctags "${HOME}/.ctags"
