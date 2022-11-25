@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        SIC CMS Custom CSS
 // @namespace   https://cms.sic.saarland
-// @description Custom CSS for *.reddit.com
+// @description Custom CSS for the SIC CMS to make it Solarized dark
 // @include     *cms.sic.saarland/*
 // @run-at      document-start
 // @version     1
