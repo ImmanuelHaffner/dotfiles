@@ -123,6 +123,32 @@ input[type="email"], input[type="url"], input[type="search"], input[type="tel"],
     border: none;
 }
 
+.modal
+{
+    background-color: var(--base03);
+}
+
+.modal-footer
+{
+    background-color: var(--base03);
+    border-top: none;
+}
+
+.modal-header
+{
+    border-bottom: none;
+}
+
+.table th, .table td
+{
+    border-top: 1px solid var(--base00);
+}
+
+.cke_editable
+{
+    color: var(--base2);
+}
+
             `;
 
             document.querySelectorAll('.icon-white').forEach(function (el) {
