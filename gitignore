@@ -10,6 +10,10 @@
 .ycm_extra_conf.py
 project.debug
 .clang
+compile_commands.json
+compile_flags.txt
+
+.cache/
 
 # ctags
 .tags
