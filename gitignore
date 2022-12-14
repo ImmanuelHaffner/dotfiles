@@ -105,3 +105,6 @@ callgrind.out.*
 
 # Jupyter
 .ipynb_checkpoints/
+
+#PostgreSQL
+.pgpass
