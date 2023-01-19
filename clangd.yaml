@@ -1,0 +1,25 @@
+# This is the user-wide configuration file for clangd
+
+CompileFlags:
+  Add: [
+    -W
+    -Wall
+    -pedantic,-Wno-variadic-macros
+    -Wno-gnu-zero-variadic-macro-arguments
+    -Wno-gnu-label-as-value
+    -Wno-vla-extension
+    -Wno-gnu-conditional-omitted-operand
+  ]
+---
+##### C sources: use the C11 standard ##################################################################################
+If:
+  PathMatch: [.*\.h, .*\.c]
+CompileFlags:
+  Add: [-xc, -std=c11]
+---
+##### C++ sources: use the C++20 standard ##############################################################################
+If:
+  PathMatch: [.*\.hpp, .*\.hh, .*\.cpp, .*\.cc]
+CompileFlags:
+  Add: [-xc++, -std=c++20, -stdlib=libc++]
+  Compiler: clang++

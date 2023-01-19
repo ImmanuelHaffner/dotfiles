@@ -55,3 +55,7 @@ matplotlib:
 
 bin:
 	cp -f uds-intranet "${HOME}/.local/bin/"
+
+clangd:
+	mkdir -p "${HOME}/.config/clangd"
+	cp clangd.yaml "${HOME}/.config/clangd/config.yaml"
