@@ -52,6 +52,7 @@
     uncommit = reset --soft HEAD~1
     untrack = rm --cache --
     upbase = rebase @{u}
+    linestat = ! "f() { git ls-files | while read f; do git blame -w -M -C -C --line-porcelain \"$f\" | grep -I '^author '; done | sort -f | uniq -ic | sort -n --reverse; }; f"
 [commit]
     gpgsign = true
 [rerere]
