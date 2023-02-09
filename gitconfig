@@ -44,8 +44,8 @@
     lg = log --graph --format=format:'%C(bold yellow reverse)%h%C(reset) %C(bold white)— %C(bold red)%an%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(auto)%d%C(reset)%n''          %C(reset)%w(120,0,10)%s' --abbrev-commit
     lga = log --all --graph --format=format:'%C(bold yellow reverse)%h%C(reset) %C(bold white)— %C(bold red)%an%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(auto)%d%C(reset)%n''          %C(reset)%w(120,0,10)%s' --abbrev-commit
     long = log --stat --decorate --graph --show-signature
-    mr = push -o merge_request.create -o merge_request.target=master -o merge_request.draft
-    mwps = push -o merge_request.create -o merge_request.target=master
+    mr = push -o merge_request.create -o merge_request.target=main -o merge_request.draft
+    mwps = push -o merge_request.create -o merge_request.target=main
     reword = commit --amend
     st = status
     stat = diff --stat
