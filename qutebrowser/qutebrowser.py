@@ -421,7 +421,7 @@ c.url.searchengines.update({
     'hy':       'https://www.hyphenation24.com/word/{}/',
     'dhl':      'https://www.dhl.de/en/privatkunden/pakete-empfangen/verfolgen.html?piececode={}',
     'duden':    'https://www.duden.de/suchen/dudenonline/{}',
-    'fa':       'https://fontawesome.com/icons?d=gallery&q={}',
+    'fa':       'https://fontawesome.com/search?q={}&o=r',
     'intrin':   'https://software.intel.com/sites/landingpage/IntrinsicsGuide/#text={}',
     'stock':    'https://www.finanzen.net/suchergebnis.asp?_search={}',
     'tex':      'https://duckduckgo.com/?q=\\site:www.weinelt.de/latex/+{}',
