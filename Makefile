@@ -25,6 +25,7 @@ sig:
 cgdb:
 	mkdir -p "${HOME}/.cgdb"
 	cp -f cgdbrc "${HOME}/.cgdb/cgdbrc"
+	cp -f gdbinit "${HOME}/.gdbinit"
 
 zathura:
 	mkdir -p "${HOME}/.config/zathura"
