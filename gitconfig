@@ -40,7 +40,7 @@
     dc = diff --cached
     dh = diff HEAD
     dt = difftool
-    get = fetch --all --recurse-submodules --tags --prune
+    get = fetch --recurse-submodules --tags --prune
     lg = log --graph --format=format:'%C(bold yellow reverse)%h%C(reset) %C(bold white)— %C(bold red)%an%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(auto)%d%C(reset)%n''          %C(reset)%w(120,0,10)%s' --abbrev-commit
     lga = log --all --graph --format=format:'%C(bold yellow reverse)%h%C(reset) %C(bold white)— %C(bold red)%an%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(auto)%d%C(reset)%n''          %C(reset)%w(120,0,10)%s' --abbrev-commit
     long = log --stat --decorate --graph --show-signature
