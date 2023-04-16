@@ -4,6 +4,9 @@ config.load_autoconfig()
 # Enable Qt auto scaling by globally setting QT_AUTO_SCREEN_SCALE_FACTOR=1 (e.g. in /etc/profile)
 c.zoom.default      = '100%'
 
+c.statusbar.show    = 'in-mode'
+c.tabs.show         = 'multiple'
+
 c.colors.webpage.preferred_color_scheme = 'dark'
 #  c.colors.wegpage.darkmode.policy.images = 'smart'
 
