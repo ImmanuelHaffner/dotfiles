@@ -5,7 +5,7 @@ XXX:
 	$(error Missing target. Use 'make install' to install all configurations or 'make <APP>' to install the \
         configuration for a specific app)
 
-install: nvim zshrc git sig cgdb zathura qutebrowser ctags screen latex xcompose matplotlib bin clangd
+install: nvim zshrc git sig cgdb zathura qutebrowser ctags screen latex xcompose matplotlib bin clangd wezterm
 
 nvim:
 	@make -C neovimrc/ install
@@ -60,3 +60,7 @@ bin:
 clangd:
 	mkdir -p "${HOME}/.config/clangd"
 	cp clangd.yaml "${HOME}/.config/clangd/config.yaml"
+
+wezterm:
+	cp wezterm.lua "${HOME}/.wezterm.lua"
+	gsettings set org.cinnamon.desktop.default-applications.terminal exec wezterm # start Wezterm from Nemo
