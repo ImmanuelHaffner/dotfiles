@@ -30,5 +30,8 @@ config.window_padding = {
 -- Configure tab bar. (Must come after setting color scheme and font.)
 config.enable_tab_bar = false
 
+-- Chainging the font size adjusts the rows/columns, not the window size.
+config.adjust_window_size_when_changing_font_size = false
+
 -- and finally, return the configuration to wezterm
 return config
