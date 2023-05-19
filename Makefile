@@ -1,11 +1,11 @@
-.PHONY: XXX install nvim zshrc git sig cgdb zathura qutebrowser ctags screen latex xcompose matplotlib bin
+.PHONY: XXX install nvim zshrc git sig cgdb zathura qutebrowser ctags screen latex xcompose matplotlib bin erdtreerc
 
 
 XXX:
 	$(error Missing target. Use 'make install' to install all configurations or 'make <APP>' to install the \
         configuration for a specific app)
 
-install: nvim zshrc git sig cgdb zathura qutebrowser ctags screen latex xcompose matplotlib bin clangd wezterm htop
+install: nvim zshrc git sig cgdb zathura qutebrowser ctags screen latex xcompose matplotlib bin clangd wezterm htop erdtreerc
 
 nvim:
 	@make -C neovimrc/ install
@@ -68,3 +68,6 @@ wezterm:
 htop:
 	mkdir -p "${HOME}/.config/htop/"
 	cp -f htoprc "${HOME}/.config/htop/htoprc"
+
+erdtree:
+	cp erdtreerc "${HOME}/.erdtreerc"
