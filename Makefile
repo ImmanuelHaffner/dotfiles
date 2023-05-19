@@ -64,6 +64,7 @@ clangd:
 wezterm:
 	cp wezterm.lua "${HOME}/.wezterm.lua"
 	gsettings set org.cinnamon.desktop.default-applications.terminal exec wezterm # start Wezterm from Nemo
+	if [ "$$(hostnamectl hostname)" = "Home-IH-Arch" ]; then sed -iE 's/^config\.font_size.*$$/config.font_size = 10/' "${HOME}/.wezterm.lua"; fi
 
 htop:
 	mkdir -p "${HOME}/.config/htop/"
