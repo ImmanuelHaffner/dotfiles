@@ -12,19 +12,27 @@ c.colors.webpage.preferred_color_scheme = 'dark'
 #  c.colors.wegpage.darkmode.policy.images = 'smart'
 
 # Fonts
-c.fonts.completion.category = 'bold 9pt monospace'
-c.fonts.completion.entry    = '9pt monospace'
-c.fonts.debug_console       = '9pt monospace'
-c.fonts.downloads           = '9pt monospace'
-c.fonts.hints               = 'bold 9pt monospace'
-c.fonts.keyhint             = '9pt sans-serif'
-c.fonts.messages.error      = '9pt monospace'
-c.fonts.messages.info       = '9pt monospace'
-c.fonts.messages.warning    = '9pt monospace'
-c.fonts.prompts             = '9pt sans-serif'
-c.fonts.statusbar           = '10pt monospace'
-c.fonts.tabs.selected       = '10pt monospace'
-c.fonts.tabs.unselected     = '10pt monospace'
+c.fonts.web.family.fixed        = 'Source Code Pro'
+c.fonts.web.family.serif        = 'Times New Roman'
+c.fonts.web.family.sans_serif   = 'Helvetica'
+c.fonts.web.family.standard     = 'Helvetica'
+
+c.fonts.completion.category = 'bold 9pt Source Code Pro'
+c.fonts.completion.entry    = '9pt Source Code Pro'
+c.fonts.debug_console       = '9pt Source Code Pro'
+c.fonts.downloads           = '9pt Helvetica'
+c.fonts.hints               = 'bold 9pt Source Code Pro'
+c.fonts.keyhint             = '9pt Helvetica'
+c.fonts.messages.error      = '9pt Helvetica'
+c.fonts.messages.info       = '9pt Helvetica'
+c.fonts.messages.warning    = '9pt Helvetica'
+c.fonts.prompts             = '9pt Helvetica'
+c.fonts.statusbar           = '10pt Source Code Pro'
+c.fonts.tabs.selected       = '10pt Helvetica'
+c.fonts.tabs.unselected     = '10pt Helvetica'
+
+c.tabs.padding              = dict(bottom = 1, top = 4, left = 10, right = 10)
+c.statusbar.padding         = dict(bottom = 1, top = 4, left = 5, right = 0)
 
 # User CSS
 # c.content.user_stylesheets = ['css/solarized-dark-all-sites.css']
