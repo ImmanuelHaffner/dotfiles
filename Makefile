@@ -5,7 +5,7 @@ XXX:
 	$(error Missing target. Use 'make install' to install all configurations or 'make <APP>' to install the \
         configuration for a specific app)
 
-install: nvim zshrc git sig cgdb zathura qutebrowser ctags screen latex xcompose matplotlib bin clangd wezterm htop erdtreerc
+install: nvim zshrc git sig cgdb zathura qutebrowser ctags screen latex xcompose matplotlib bin wezterm htop erdtreerc
 
 nvim:
 	@make -C neovimrc/ install
@@ -58,8 +58,15 @@ bin:
 	cp -f uds-intranet "${HOME}/.local/bin/"
 
 clangd:
-	mkdir -p "${HOME}/.config/clangd"
-	cp clangd.yaml "${HOME}/.config/clangd/config.yaml"
+	@>&2 echo "WARNING: Installing a user-wide clangd config currently breaks clangd support in mutable"
+	@read -n1 -p "Install anyway? [y/N]" choice; \
+        case $${choice} in \
+            y|Y) \
+                mkdir -p "${HOME}/.config/clangd"; \
+                cp clangd.yaml "${HOME}/.config/clangd/config.yaml"; \
+                ;; \
+            *) ;; \
+        esac
 
 wezterm:
 	cp wezterm.lua "${HOME}/.wezterm.lua"
