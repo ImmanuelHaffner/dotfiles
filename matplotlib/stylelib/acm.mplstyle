@@ -116,7 +116,7 @@ axes.linewidth: 0.6
 axes.grid: True
 axes.grid.axis: both
 axes.grid.which: major
-axes.labelsize: x-small
+axes.labelsize: small
 axes.formatter.use_mathtext: True
 axes.titlesize: small
 axes.titleweight: 400
@@ -137,7 +137,7 @@ xtick.minor.width: 0.3
 xtick.major.pad: 2
 xtick.minor.pad: 2
 xtick.color: black
-xtick.labelsize: xx-small
+xtick.labelsize: x-small
 xtick.minor.visible: False
 
 ytick.left: True
@@ -147,7 +147,7 @@ ytick.major.width: 0.4
 ytick.minor.width: 0.3
 ytick.major.pad: 2
 ytick.minor.pad: 2
-ytick.labelsize: xx-small
+ytick.labelsize: x-small
 ytick.minor.visible: False
 
 
@@ -164,11 +164,11 @@ grid.linewidth: 0.4     # in points
 legend.frameon: True
 legend.framealpha: 1
 legend.edgecolor: black
-legend.fontsize: xx-small
+legend.fontsize: x-small
 legend.handlelength: 0.75
 legend.handletextpad: 0.4
 legend.markerscale: 1.2
-legend.title_fontsize: x-small
+legend.title_fontsize: small
 legend.columnspacing: 0.8
 
 
@@ -177,7 +177,7 @@ legend.columnspacing: 0.8
 ## ***************************************************************************
 ## See https://matplotlib.org/api/figure_api.html#matplotlib.figure.Figure
 
-figure.titlesize: x-small
+figure.titlesize: small
 figure.dpi: 300
 
 
