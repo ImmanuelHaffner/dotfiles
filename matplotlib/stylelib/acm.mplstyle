@@ -120,7 +120,7 @@ axes.labelsize: small
 axes.formatter.use_mathtext: True
 axes.titlesize: small
 axes.titleweight: 400
-axes.titlepad: 2
+axes.titlepad: 4
 axes.labelpad: 2
 
 
