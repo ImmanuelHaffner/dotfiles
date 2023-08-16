@@ -112,7 +112,7 @@ mathtext.sf: Libertinus Sans:style=Regular
 ## https://matplotlib.org/api/axes_api.html#module-matplotlib.axes
 
 axes.edgecolor: black
-axes.linewidth: 0.6
+axes.linewidth: 0.8
 axes.grid: True
 axes.grid.axis: both
 axes.grid.which: major
@@ -121,7 +121,7 @@ axes.formatter.use_mathtext: True
 axes.titlesize: small
 axes.titleweight: 400
 axes.titlepad: 4
-axes.labelpad: 2
+axes.labelpad: 4
 
 
 ## ***************************************************************************
@@ -130,10 +130,10 @@ axes.labelpad: 2
 ## See https://matplotlib.org/api/axis_api.html#matplotlib.axis.Tick
 
 xtick.bottom: True
-xtick.major.size: 2.5
-xtick.minor.size: 1.5
-xtick.major.width: 0.4
-xtick.minor.width: 0.3
+xtick.major.size: 4
+xtick.minor.size: 3
+xtick.major.width: 0.6
+xtick.minor.width: 0.4
 xtick.major.pad: 2
 xtick.minor.pad: 2
 xtick.color: black
@@ -141,10 +141,10 @@ xtick.labelsize: x-small
 xtick.minor.visible: False
 
 ytick.left: True
-ytick.major.size: 2.5
-ytick.minor.size: 1.5
-ytick.major.width: 0.4
-ytick.minor.width: 0.3
+ytick.major.size: 4
+ytick.minor.size: 3
+ytick.major.width: 0.6
+ytick.minor.width: 0.4
 ytick.major.pad: 2
 ytick.minor.pad: 2
 ytick.labelsize: x-small
@@ -164,7 +164,7 @@ grid.linewidth: 0.4     # in points
 legend.frameon: True
 legend.framealpha: 1
 legend.edgecolor: black
-legend.fontsize: x-small
+legend.fontsize: small
 legend.handlelength: 0.75
 legend.handletextpad: 0.4
 legend.markerscale: 1.2
