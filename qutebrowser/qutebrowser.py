@@ -16,22 +16,23 @@ c.fonts.web.family.fixed        = 'Source Code Pro'
 c.fonts.web.family.serif        = 'Times New Roman'
 c.fonts.web.family.sans_serif   = 'Helvetica'
 c.fonts.web.family.standard     = 'Helvetica'
+c.fonts.web.size.default        = 12
 
-c.fonts.completion.category = 'bold 9pt Source Code Pro'
-c.fonts.completion.entry    = '9pt Source Code Pro'
-c.fonts.debug_console       = '9pt Source Code Pro'
-c.fonts.downloads           = '9pt Helvetica'
-c.fonts.hints               = 'bold 9pt Source Code Pro'
-c.fonts.keyhint             = '9pt Helvetica'
-c.fonts.messages.error      = '9pt Helvetica'
-c.fonts.messages.info       = '9pt Helvetica'
-c.fonts.messages.warning    = '9pt Helvetica'
-c.fonts.prompts             = '9pt Helvetica'
-c.fonts.statusbar           = '10pt Source Code Pro'
-c.fonts.tabs.selected       = '10pt Helvetica'
-c.fonts.tabs.unselected     = '10pt Helvetica'
+c.fonts.completion.category = 'bold 8pt Source Code Pro'
+c.fonts.completion.entry    = '8pt Source Code Pro'
+c.fonts.debug_console       = '8pt Source Code Pro'
+c.fonts.downloads           = '8pt Helvetica'
+c.fonts.hints               = 'bold 8pt Source Code Pro'
+c.fonts.keyhint             = '8pt Helvetica'
+c.fonts.messages.error      = '8pt Helvetica'
+c.fonts.messages.info       = '8pt Helvetica'
+c.fonts.messages.warning    = '8pt Helvetica'
+c.fonts.prompts             = '8pt Helvetica'
+c.fonts.statusbar           = '9pt Source Code Pro'
+c.fonts.tabs.selected       = '7pt Helvetica'
+c.fonts.tabs.unselected     = '7pt Helvetica'
 
-c.tabs.padding              = dict(bottom = 1, top = 4, left = 10, right = 10)
+c.tabs.padding              = dict(bottom = 1, top = 1, left = 5, right = 5)
 c.statusbar.padding         = dict(bottom = 1, top = 4, left = 5, right = 0)
 
 # User CSS
