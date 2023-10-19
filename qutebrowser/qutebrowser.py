@@ -29,8 +29,8 @@ c.fonts.messages.info       = '8pt Helvetica'
 c.fonts.messages.warning    = '8pt Helvetica'
 c.fonts.prompts             = '8pt Helvetica'
 c.fonts.statusbar           = '9pt Source Code Pro'
-c.fonts.tabs.selected       = '7pt Helvetica'
-c.fonts.tabs.unselected     = '7pt Helvetica'
+c.fonts.tabs.selected       = '8pt Helvetica'
+c.fonts.tabs.unselected     = '8pt Helvetica'
 
 c.tabs.padding              = dict(bottom = 1, top = 1, left = 5, right = 5)
 c.statusbar.padding         = dict(bottom = 1, top = 4, left = 5, right = 0)
