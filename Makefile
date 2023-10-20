@@ -38,7 +38,7 @@ qutebrowser:
 	-xdg-mime default org.qutebrowser.qutebrowser.desktop x-scheme-handler/http
 	-xdg-mime default org.qutebrowser.qutebrowser.desktop x-scheme-handler/https
 	cp -R qutebrowser/greasemonkey "${HOME}/.config/qutebrowser"
-	if [ "$$(xrdb -query | grep dpi | cut -f 2)" -gt 200 ]; then echo "c.qt.highdpi = True" >> "${HOME}/.config/qutebrowser/config.py"; fi
+
 ctags:
 	cp -f ctags "${HOME}/.ctags"
 
