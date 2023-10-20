@@ -12,7 +12,7 @@ end
 
 -- This is where you actually apply your config choices
 config.font = wezterm.font("Source Code Pro", {weight="Regular", stretch="Normal", style="Normal"}) -- /usr/share/fonts/adobe-source-code-pro/SourceCodePro-Regular.otf, FontConfig
-config.font_size = 10
+config.font_size = 11
 config.warn_about_missing_glyphs = false
 
 config.color_scheme = 'Solarized Dark (Gogh)'
