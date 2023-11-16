@@ -15,7 +15,8 @@ config.font = wezterm.font("Source Code Pro", {weight="Regular", stretch="Normal
 config.font_size = 11
 config.warn_about_missing_glyphs = false
 
-config.color_scheme = 'Solarized Dark (Gogh)'
+-- config.color_scheme = 'Solarized Dark (Gogh)'
+config.color_scheme = 'NightOwl (Gogh)'
 config.colors = {  -- patch Solarized Dark (Gogh) theme: make character under cursor visible
     cursor_fg = '#002B36',
 }
