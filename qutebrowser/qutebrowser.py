@@ -447,3 +447,6 @@ c.aliases = {
     'w': 'session-save',
 }
 config.bind('<Ctrl-q>', 'session-save ;; quit')
+
+# Temporarily grant JS access to the clipboard
+config.bind('ca', 'set -t content.javascript.clipboard access ;; cmd-later 10s set -p content.javascript.clipboard none')
