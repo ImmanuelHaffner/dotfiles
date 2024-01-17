@@ -1,5 +1,5 @@
 --human
---no-ignore
 --icons
 --layout inverted
+--no-ignore
 --sort name
