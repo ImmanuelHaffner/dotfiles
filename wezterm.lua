@@ -18,11 +18,8 @@ config.warn_about_missing_glyphs = false
 -- config.color_scheme = 'Solarized Dark (Gogh)'
 config.color_scheme = 'NightOwl (Gogh)'
 config.colors = {  -- patch Solarized Dark (Gogh) theme: make character under cursor visible
-    cursor_fg = '#002B36',
+    cursor_bg = '#204675',
 }
--- config.color_scheme = 'Solarized (dark) (terminal.sexy)'
--- config.color_scheme = 'Solarized Dark - Patched'
--- config.color_scheme = 'Solarized Dark Higher Contrast'
 
 -- Configure window padding.
 config.window_padding = {
