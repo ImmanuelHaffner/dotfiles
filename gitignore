@@ -21,6 +21,9 @@ compile_flags.txt
 # Make
 default.cfg
 
+# GDB / CGDB
+.gdbinit
+
 # Archives
 *.7z
 *.rar
