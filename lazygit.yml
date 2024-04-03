@@ -1,2 +1,6 @@
 os:
   editPreset: 'nvim-remote'
+git:
+  commit:
+    autoWrapCommitMessage: true
+    autoWrapWidth: 80
