@@ -18,3 +18,7 @@ map x :next<CR>
 map s :step<CR>
 map u :up<CR>
 map d :down<CR>
+
+set print object off
+set print pretty on
+set print static-members off
