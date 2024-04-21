@@ -403,6 +403,9 @@ c.content.notifications.presenter = 'libnotify'
 # Request sites to reduce non-essential motions
 c.content.prefers_reduced_motion = True
 
+# No autoplay
+c.content.autoplay = False
+
 # Search engines
 c.url.searchengines.update({
     'DEFAULT':  'https://www.google.de/search?q={}',
