@@ -35,12 +35,29 @@ config.enable_tab_bar = false
 -- Chainging the font size adjusts the rows/columns, not the window size.
 config.adjust_window_size_when_changing_font_size = false
 
--- Disable copy on select
+-- Configure hyperlinks
+config.hyperlink_rules = wezterm.default_hyperlink_rules()
+
+-- Configure bindings
 config.mouse_bindings = {
+    -- Disable copy on select
     {
         event = { Up = { streak = 1, button = 'Left' } },
         mods = 'NONE',
         action = wezterm.action.DisableDefaultAssignment,
+    },
+
+    -- Ctrl-click will open the link under the mouse cursor
+    {
+        event = { Up = { streak = 1, button = "Left" } },
+        mods = "CTRL",
+        action = wezterm.action.OpenLinkAtMouseCursor,
+    },
+    -- Disable the Ctrl-click down event to stop programs from seeing it when a URL is clicked
+    {
+        event = { Down = { streak = 1, button = "Left" } },
+        mods = "CTRL",
+        action = wezterm.action.Nop,
     },
 }
 
