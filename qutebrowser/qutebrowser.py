@@ -397,6 +397,12 @@ c.colors.tabs.selected.odd.fg = solarized['base3']
 # SSL/TLS Certificate Error Handling
 c.content.tls.certificate_errors = 'ask-block-thirdparty' # ask for page loads with errors, automatically block resource loads
 
+config.bind(',b', 'config-cycle content.blocking.enabled true false')
+c.content.blocking.adblock.lists.extend([
+    'https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/filters-2023.txt',
+    'https://raw.githubusercontent.com/bogachenko/fuckfuckadblock/master/fuckfuckadblock.txt',
+])
+
 # Notifications
 c.content.notifications.presenter = 'libnotify'
 
