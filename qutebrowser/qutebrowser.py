@@ -452,7 +452,7 @@ c.url.searchengines.update({
     })
 
 # External Editor
-c.editor.command = ['/usr/bin/sakura', '-e', '/usr/bin/nvim', '{}']
+c.editor.command = ['/usr/bin/neovide', '{}']
 
 c.aliases = {
     'l': 'session-load',
