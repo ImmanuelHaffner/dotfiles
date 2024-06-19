@@ -412,6 +412,9 @@ c.content.prefers_reduced_motion = True
 # No autoplay
 c.content.autoplay = False
 
+# Persist insert mode for each tab
+c.tabs.mode_on_change = 'restore'
+
 # Search engines
 c.url.searchengines.update({
     'DEFAULT':  'https://www.google.de/search?q={}',
