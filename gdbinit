@@ -10,7 +10,11 @@ set auto-load local-gdbinit on
 set debuginfod enabled on
 
 set print array on
-set print elements 0
+set print elements 20
+set print max-depth 2
 set print null-stop on
 set print object on
 set print pretty on
+set print raw-values off
+set print repeats 3
+set print static-members off
