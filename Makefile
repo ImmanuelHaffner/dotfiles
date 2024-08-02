@@ -1,4 +1,4 @@
-.PHONY: XXX install nvim zshrc git sig cgdb zathura qutebrowser ctags screen latex xcompose matplotlib bin erdtreerc lazygit
+.PHONY: XXX install bin cgdb ctags erdtreerc git gpg latex lazygit matplotlib nvim qutebrowser screen sig xcompose zathura zshrc
 
 
 XXX:
@@ -88,3 +88,7 @@ erdtree:
 lazygit:
 	mkdir -p "${HOME}/.config/lazygit"
 	cp -f lazygit.yml "${HOME}/.config/lazygit/config.yml"
+
+gpg:
+	mkdir -p "${HOME}/.gnupg"
+	cp gpg/* "${HOME}/.gnupg/"
