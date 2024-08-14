@@ -461,7 +461,12 @@ c.aliases = {
 config.bind('<Ctrl-q>', 'session-save ;; quit')
 
 # Temporarily grant JS access to the clipboard
-config.bind('ca', 'set -t content.javascript.clipboard access ;; cmd-later 10s set -p content.javascript.clipboard none')
+config.bind('<Space>sc', 'set -t content.javascript.clipboard access ;; message-warning "Clipboard enabled for 10 seconds" ;; cmd-later 10s set content.javascript.clipboard none ;; cmd-later 10s message-warning "Clipboard disabled"')
+
+# Tab-give
+config.bind('<Space>tgn', 'tab-give')       # new window
+config.bind('<Space>tg0', 'tab-give 0')     # window 0
+config.bind('<Space>tg1', 'tab-give 1')     # window 1
 
 
 ########################################################################################################################
