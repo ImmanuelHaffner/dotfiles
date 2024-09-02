@@ -12,6 +12,7 @@ project.debug
 .clang
 compile_commands.json
 compile_flags.txt
+.ltex/
 
 .cache/
 
