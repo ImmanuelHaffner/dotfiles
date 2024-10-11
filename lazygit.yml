@@ -4,3 +4,4 @@ git:
   commit:
     autoWrapCommitMessage: true
     autoWrapWidth: 80
+  overrideGpg: true
