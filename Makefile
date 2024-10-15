@@ -5,7 +5,7 @@ XXX:
 	$(error Missing target. Use 'make install' to install all configurations or 'make <APP>' to install the \
         configuration for a specific app)
 
-install: bin cgdb ctags erdtreerc git gpg htop latex matplotlib nvim qutebrowser screen sig wezterm xcompose zathura zshrc
+install: bin cgdb ctags erdtreerc git gpg htop latex lazygit matplotlib nvim qutebrowser screen sig wezterm xcompose zathura zshrc
 
 nvim:
 	@make -C neovimrc/ install
