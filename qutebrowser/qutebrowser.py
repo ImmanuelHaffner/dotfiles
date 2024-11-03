@@ -4,6 +4,9 @@ config.load_autoconfig()
 # Enable Qt auto scaling by globally setting QT_AUTO_SCREEN_SCALE_FACTOR=1 (e.g. in /etc/profile)
 c.zoom.default      = '100%'
 
+# Turn on QT HighDPI scaling.
+c.qt.highdpi = True
+
 #  c.statusbar.show    = 'in-mode' # use this setting once the weird "jump-to-top" behaviour is fixed
 c.statusbar.show    = 'always'
 c.tabs.show         = 'multiple'
