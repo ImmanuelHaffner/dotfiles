@@ -483,3 +483,4 @@ config.set('input.mode_override', 'passthrough', 'app.slack.com')
 
 # Google Apps
 config.set('input.mode_override', 'passthrough', 'docs.google.com')
+config.set('input.mode_override', 'passthrough', 'meet.google.com')
