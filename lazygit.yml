@@ -8,3 +8,7 @@ git:
   paging:
     colorArg: always
     pager: delta --dark --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
+  merging:
+    # If true, run merges in a subprocess so that if a commit message is required, Lazygit will not hang.
+    # Only applicable to unix users.
+    manualCommit: true
