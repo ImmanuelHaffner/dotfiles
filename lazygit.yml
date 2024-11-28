@@ -12,3 +12,8 @@ git:
     # If true, run merges in a subprocess so that if a commit message is required, Lazygit will not hang.
     # Only applicable to unix users.
     manualCommit: true
+gui:
+  scrollHeight: 8
+  scrollOffMargin: 10
+  nerdFontsVersion: "3"  # enables icons
+  filterMode: fuzzy
