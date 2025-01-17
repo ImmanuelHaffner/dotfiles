@@ -11,6 +11,8 @@ c.qt.highdpi = True
 c.statusbar.show    = 'always'
 c.tabs.show         = 'multiple'
 
+c.tabs.pinned.frozen = False
+
 c.colors.webpage.preferred_color_scheme = 'dark'
 #  c.colors.wegpage.darkmode.policy.images = 'smart'
 
