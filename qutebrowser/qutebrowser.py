@@ -36,7 +36,7 @@ c.fonts.statusbar           = '10pt Source Code Pro'
 c.fonts.tabs.selected       = '10pt Helvetica'
 c.fonts.tabs.unselected     = '10pt Helvetica'
 
-c.tabs.padding              = dict(bottom = 1, top = 4, left = 10, right = 10)
+c.tabs.padding              = dict(bottom = 1, top = 2, left = 5, right = 5)
 c.statusbar.padding         = dict(bottom = 1, top = 4, left = 5, right = 0)
 
 # User CSS
