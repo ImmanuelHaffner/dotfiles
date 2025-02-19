@@ -22,6 +22,9 @@ c.fonts.web.family.serif        = 'Times New Roman'
 c.fonts.web.family.sans_serif   = 'Helvetica'
 c.fonts.web.family.standard     = 'Helvetica'
 
+c.fonts.web.size.default = 14
+c.fonts.web.size.default_fixed = 12
+
 c.fonts.completion.category = 'bold 9pt Source Code Pro'
 c.fonts.completion.entry    = '9pt Source Code Pro'
 c.fonts.debug_console       = '9pt Source Code Pro'
