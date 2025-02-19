@@ -476,6 +476,9 @@ config.bind('<Space>tgn', 'tab-give')       # new window
 config.bind('<Space>tg0', 'tab-give 0')     # window 0
 config.bind('<Space>tg1', 'tab-give 1')     # window 1
 
+# Toggle dark mode
+config.bind('<Space>d', 'config-cycle colors.webpage.darkmode.enabled true false')
+
 
 ########################################################################################################################
 ###     Per-website configs
