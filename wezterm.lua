@@ -1,18 +1,33 @@
 -- Pull in the wezterm API
-local wezterm = require 'wezterm'
+local wezterm = require'wezterm'
+
+function os.capture(cmd)
+    local instream = assert(io.popen(cmd, 'r'))
+    local outstream = assert(instream:read('*a'))
+    instream:close()
+    return outstream
+end
+
+local function compute_font_size(dpi)
+    -- 169 dpi ⇒ 8 pt
+    -- 69 dpi ⇒ 13 pt
+    return math.floor(-.05 * dpi + 16.45 + .5)  -- +.5 to round
+end
 
 -- This table will hold the configuration.
 local config = {}
 
+local dpi = os.capture[[xrdb -query | grep Xft.dpi | awk '{print $2}']]
+
 -- In newer versions of wezterm, use the config_builder which will
 -- help provide clearer error messages
 if wezterm.config_builder then
-  config = wezterm.config_builder()
+    config = wezterm.config_builder()
 end
 
 -- This is where you actually apply your config choices
 config.font = wezterm.font("Source Code Pro", {weight="Regular", stretch="Normal", style="Normal"}) -- /usr/share/fonts/adobe-source-code-pro/SourceCodePro-Regular.otf, FontConfig
-config.font_size = 11
+config.font_size = compute_font_size(dpi)
 config.warn_about_missing_glyphs = false
 
 -- config.color_scheme = 'Solarized Dark (Gogh)'
