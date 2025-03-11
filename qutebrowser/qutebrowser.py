@@ -423,6 +423,9 @@ c.content.autoplay = False
 # Persist insert mode for each tab
 c.tabs.mode_on_change = 'restore'
 
+# Set hint characters for Colemak Mod-DH layout
+c.hints.chars = 'awftnuyorsei'
+
 # Search engines
 c.url.searchengines.update({
     'DEFAULT':  'https://www.google.de/search?q={}',
