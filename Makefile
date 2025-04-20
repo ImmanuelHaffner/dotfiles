@@ -66,8 +66,7 @@ clangd:
 
 wezterm:
 	cp wezterm.lua "${HOME}/.wezterm.lua"
-	gsettings set org.cinnamon.desktop.default-applications.terminal exec wezterm # start Wezterm from Nemo
-	if [ "$$(xrdb -query | grep dpi | cut -f 2)" -gt 200 ]; then sed -iE 's/^config\.font_size.*$$/config.font_size = 8/' "${HOME}/.wezterm.lua"; fi
+	-gsettings set org.cinnamon.desktop.default-applications.terminal exec /usr/bin/wezterm  # start Wezterm from Nemo
 	tempfile=$(mktemp) \
              && curl -o $tempfile https://raw.githubusercontent.com/wez/wezterm/master/termwiz/data/wezterm.terminfo \
              && tic -x -o ~/.terminfo $tempfile \
