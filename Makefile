@@ -1,11 +1,11 @@
-.PHONY: XXX install bin cgdb ctags erdtreerc git gpg latex lazygit matplotlib nvim qutebrowser screen sig xcompose zathura zshrc
+.PHONY: XXX install bin cgdb ctags erdtreerc git gpg latex lazygit matplotlib nvim qutebrowser screen xcompose zathura zshrc
 
 
 XXX:
 	$(error Missing target. Use 'make install' to install all configurations or 'make <APP>' to install the \
         configuration for a specific app)
 
-install: bin cgdb ctags erdtreerc git gpg htop latex lazygit matplotlib nvim qutebrowser screen sig wezterm xcompose zathura zshrc
+install: bin cgdb ctags erdtreerc git gpg htop latex lazygit matplotlib nvim qutebrowser screen wezterm xcompose zathura zshrc
 
 nvim:
 	@make -C neovimrc/ install
@@ -17,10 +17,6 @@ git:
 	cp -f gitconfig "${HOME}/.gitconfig"
 	cp -f gitignore "${HOME}/.gitignore"
 	-git config --global user.signingkey $(shell gpg --list-secret-keys --keyid-format LONG "haffner.immanuel@gmail.com" | grep sec | cut --delimiter='/' -f 2 | cut --delimiter=' ' -f 1)
-
-sig:
-	cp -f bigdata.sig.html "${HOME}/.bigdata.sig.html"
-	cp -f private.sig.html "${HOME}/.private.sig.html"
 
 cgdb:
 	mkdir -p "${HOME}/.cgdb"
