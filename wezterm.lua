@@ -34,7 +34,7 @@ config.warn_about_missing_glyphs = false
 -- config.color_scheme = 'Nightfly (Gogh)'
 config.color_scheme = 'NightOwl (Gogh)'
 config.colors = {  -- patch Solarized Dark (Gogh) theme: make character under cursor visible
-    cursor_bg = '#204675',
+    cursor_bg = '#2d3a4a',
 }
 
 -- Configure window padding.
