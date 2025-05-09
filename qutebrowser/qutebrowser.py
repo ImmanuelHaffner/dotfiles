@@ -1,3 +1,37 @@
+import math
+import re
+import subprocess
+import sys
+
+
+def get_display_dpi():
+    try:
+        # Run `xrdb -query` to get X resources
+        output = subprocess.check_output(['xrdb', '-query'], text=True)
+
+        # Search for Xft.dpi value
+        match = re.search(r'Xft.dpi:\s*(\d+)', output)
+        if match:
+            return float(match.group(1))
+    except subprocess.CalledProcessError as e:
+        print(sys.stderr, "Failed to run xrdb:", e)
+    else:
+        print(sys.stderr, "Falling back to default 96 DPI")
+        return 96
+
+
+def compute_font_size(dpi):
+    # 169 dpi ⇒ 8 pt
+    # 69 dpi ⇒ 13 pt
+    return round(-.05 * dpi + 16.45)
+
+
+dpi = get_display_dpi()
+default_font_size = compute_font_size(dpi)
+large_font_size = default_font_size + 1
+larger_font_size = default_font_size + 2
+
+
 config.load_autoconfig()
 
 # Zoom factor
@@ -7,8 +41,8 @@ c.zoom.default      = '100%'
 # Turn on QT HighDPI scaling.
 c.qt.highdpi = True
 
-#  c.statusbar.show    = 'in-mode' # use this setting once the weird "jump-to-top" behaviour is fixed
-c.statusbar.show    = 'always'
+c.statusbar.show    = 'in-mode'  # use this setting once the weird "jump-to-top" behaviour is fixed
+# c.statusbar.show    = 'always'
 c.tabs.show         = 'multiple'
 
 c.tabs.pinned.frozen = False
@@ -22,22 +56,22 @@ c.fonts.web.family.serif        = 'Times New Roman'
 c.fonts.web.family.sans_serif   = 'Helvetica'
 c.fonts.web.family.standard     = 'Helvetica'
 
-c.fonts.web.size.default = 14
-c.fonts.web.size.default_fixed = 12
+c.fonts.web.size.default = default_font_size
+c.fonts.web.size.default_fixed = max(1, default_font_size - 2)
 
-c.fonts.completion.category = 'bold 9pt Source Code Pro'
-c.fonts.completion.entry    = '9pt Source Code Pro'
-c.fonts.debug_console       = '9pt Source Code Pro'
-c.fonts.downloads           = '9pt Helvetica'
-c.fonts.hints               = 'bold 9pt Source Code Pro'
-c.fonts.keyhint             = '9pt Helvetica'
-c.fonts.messages.error      = '9pt Helvetica'
-c.fonts.messages.info       = '9pt Helvetica'
-c.fonts.messages.warning    = '9pt Helvetica'
-c.fonts.prompts             = '9pt Helvetica'
-c.fonts.statusbar           = '10pt Source Code Pro'
-c.fonts.tabs.selected       = '10pt Helvetica'
-c.fonts.tabs.unselected     = '10pt Helvetica'
+c.fonts.completion.category = f'bold {large_font_size}pt Source Code Pro'
+c.fonts.completion.entry    = f'{default_font_size}pt Source Code Pro'
+c.fonts.debug_console       = f'{default_font_size}pt Source Code Pro'
+c.fonts.downloads           = f'{default_font_size}pt Helvetica'
+c.fonts.hints               = f'bold {large_font_size}pt Source Code Pro'
+c.fonts.keyhint             = f'{large_font_size}pt Helvetica'
+c.fonts.messages.error      = f'{default_font_size}pt Helvetica'
+c.fonts.messages.info       = f'{default_font_size}pt Helvetica'
+c.fonts.messages.warning    = f'{default_font_size}pt Helvetica'
+c.fonts.prompts             = f'{larger_font_size}pt Helvetica'
+c.fonts.statusbar           = f'{default_font_size}pt Source Code Pro'
+c.fonts.tabs.selected       = f'{default_font_size}pt Helvetica'
+c.fonts.tabs.unselected     = f'{default_font_size}pt Helvetica'
 
 c.tabs.padding              = dict(bottom = 1, top = 2, left = 5, right = 5)
 c.statusbar.padding         = dict(bottom = 1, top = 4, left = 5, right = 0)
