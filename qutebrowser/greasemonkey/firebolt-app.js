@@ -133,6 +133,8 @@
         [class*="_tab_1f933_16"],
         [class*="_icon_1f933_36"],
         [class*="_label_1f933_55"],
+        ._outputSubPanel_10a6k_1,
+        ._body_1a3ef_22,
         ._root_5ybuy_484,
         .cm-scroller, .cm-content,
         .cm-gutters, .cm-gutter, .cm-gutterElement {
@@ -163,6 +165,10 @@
         }
 
         .cm-activeLine.cm-line {
+            background-color: #0b2942 !important;
+        }
+
+        ._customHandle_izwgg_28 {
             background-color: #0b2942 !important;
         }
     `;

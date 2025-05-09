@@ -4,7 +4,7 @@
 // @version      1.0
 // @description  Apply the Night Owl color theme to Okta dashboard
 // @author       Immanuel Haffner
-// @match        https://firebolt-sso.oktastaging-.com/*
+// @match        https://firebolt-sso.okta.com/*
 // @grant        none
 // ==/UserScript==
 
@@ -47,19 +47,24 @@
         .tb--sidenav-subitem .tb--sidenav-subitem-icon svg,
         .tb--sidenav-subitem .tb--sidenav-subitem-label,
         .tb--sidenav-item .tb--sidenav-item-label,
+        .dashboard--sort-apps-header.dashboard--sort-apps-header-grid-view-margin,
         .MuiScopedCssBaseline-root {
             background-color: #092135 !important;
             color: #d6deeb !important;
         }
 
-        .MuiButton-root, 
+        .chiclet--article {
+            background-color: #021727 !important;
+        }
+
+        .MuiButton-root,
         .MuiButtonBase-root {
             background-color: #82aaff !important;
             color: #021727 !important;
-            border-radius: 4px !important;
+            // border-radius: 4px !important;
         }
 
-        .MuiButton-root:hover, 
+        .MuiButton-root:hover,
         .MuiButtonBase-root:hover {
             background-color: #c792ea !important;
             color: #021727 !important;
@@ -76,9 +81,9 @@
             color: #d6deeb !important;
         }
 
-        o-link, 
-        o-dropdown-menu, 
-        o-text-input, 
+        o-link,
+        o-dropdown-menu,
+        o-text-input,
         o-button,
         .dropdown-menu--button-content,
         .chiclet--app-title,
@@ -130,6 +135,10 @@
 
         .tb--sidenav-header {
             background: inherit !important;
+        }
+
+        .side-nav--container .side-nav {
+            border-right: 5px solid rgba(0,0,0,.15) !important;
         }
     `;
     document.head.appendChild(style);
