@@ -4,6 +4,25 @@ import subprocess
 import sys
 
 
+
+def round_to_nearest_in_list(value, values_list):
+    """
+    Round a value to the nearest value in a given list.
+
+    Args:
+        value: The value to round
+        values_list: List of values to round to
+
+    Returns:
+        The value from values_list that is closest to the input value
+    """
+    if not values_list:
+        raise ValueError("values_list cannot be empty")
+
+    # Find the value with minimum absolute difference
+    return min(values_list, key=lambda x: abs(x - value))
+
+
 def get_display_dpi():
     try:
         # Run `xrdb -query` to get X resources
@@ -26,17 +45,16 @@ def compute_font_size(dpi):
     return round(-.05 * dpi + 16.45)
 
 
+preferred_zoom_factors = [25, 33, 50, 67, 75, 90, 100, 110, 125, 150, 200, ]
+
 dpi = get_display_dpi()
 default_font_size = compute_font_size(dpi)
+print(f'default font size: {default_font_size}')
 large_font_size = default_font_size + 1
 larger_font_size = default_font_size + 2
 
 
 config.load_autoconfig()
-
-# Zoom factor
-# Enable Qt auto scaling by globally setting QT_AUTO_SCREEN_SCALE_FACTOR=1 (e.g. in /etc/profile)
-c.zoom.default      = '100%'
 
 # Turn on QT HighDPI scaling.
 c.qt.highdpi = True
@@ -55,9 +73,17 @@ c.fonts.web.family.fixed        = 'Source Code Pro'
 c.fonts.web.family.serif        = 'Times New Roman'
 c.fonts.web.family.sans_serif   = 'Helvetica'
 c.fonts.web.family.standard     = 'Helvetica'
+c.fonts.web.size.default = 12
+c.fonts.web.size.default_fixed = 12
+c.fonts.web.size.minimum = 10
 
-c.fonts.web.size.default = default_font_size
-c.fonts.web.size.default_fixed = max(1, default_font_size - 2)
+# Zoom factor
+# Enable Qt auto scaling by globally setting QT_AUTO_SCREEN_SCALE_FACTOR=1 (e.g. in /etc/profile)
+# wanted_zoom_factor = 100 * (dpi / 96)**.5
+# print(f'wanted zoom factor: {wanted_zoom_factor}')
+# preferred_zoom_factor = round_to_nearest_in_list(wanted_zoom_factor, preferred_zoom_factors)
+# print(f'preferred zoom factor: {preferred_zoom_factor}')
+# c.zoom.default      = f'{preferred_zoom_factor:.0f}%'
 
 c.fonts.completion.category = f'bold {large_font_size}pt Source Code Pro'
 c.fonts.completion.entry    = f'{default_font_size}pt Source Code Pro'
