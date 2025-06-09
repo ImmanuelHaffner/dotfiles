@@ -4,7 +4,6 @@ import subprocess
 import sys
 
 
-
 def round_to_nearest_in_list(value, values_list):
     """
     Round a value to the nearest value in a given list.
@@ -54,7 +53,20 @@ large_font_size = default_font_size + 1
 larger_font_size = default_font_size + 2
 
 
+########################################################################################################################
+#
+# Config starts here
+#
+########################################################################################################################
 config.load_autoconfig()
+
+config.set('qt.args', [
+    'ignore-gpu-blocklist',
+    'enable-gpu-rasterization',
+    'enable-accelerated-video-decode',
+    'enable-quic',
+    'enable-zero-copy',
+])
 
 # Turn on QT HighDPI scaling.
 c.qt.highdpi = True
