@@ -1,0 +1,12 @@
+#!/bin/bash
+
+set -e
+
+SERVER="workstation"
+PORT="42137"
+NEOVIDE="neovide --fork --server ${SERVER}:${PORT}"
+
+# Spawn Neovide session connected to Ubuntu Workstation
+echo "===== Spawn Neovide and connect to server ${SERVER}:${PORT} ====="
+echo "${NEOVIDE}"
+${NEOVIDE}
