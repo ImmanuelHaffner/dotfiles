@@ -1,0 +1,14 @@
+#!/bin/bash
+
+WOL="wol --verbose 04:7C:16:F6:D9:07"
+
+if ip link | grep "zbox-wg";
+then
+    # wake remotely
+    ssh zbox "${WOL}"
+else
+    # wake from LAN
+    ${WOL}
+fi
+
+

@@ -51,7 +51,7 @@ matplotlib:
 	cp -Rf matplotlib "${HOME}/.config/"
 
 bin:
-	cp -f uds-intranet "${HOME}/.local/bin/"
+	cp -f bin/* "${HOME}/.local/bin/"
 
 clangd:
 	@>&2 echo "WARNING: Installing a user-wide clangd config currently breaks clangd support in mutable"
