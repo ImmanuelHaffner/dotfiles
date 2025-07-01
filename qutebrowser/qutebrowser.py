@@ -518,6 +518,7 @@ c.url.searchengines.update({
     'gg':       'https://www.google.de/search?q={}',
     'ghub':     'https://github.com/search?q={}',
     'gs':       'https://scholar.google.de/scholar?q={}',
+    'guru':     'https://app.getguru.com/search?query={}'
     'hy':       'https://www.hyphenation24.com/word/{}/',
     'intrin':   'https://software.intel.com/sites/landingpage/IntrinsicsGuide/#text={}',
     'leo':      'https://dict.leo.org/german-english/{}',
