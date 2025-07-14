@@ -80,6 +80,7 @@ default.cfg
 *.vrb
 *.bbl
 *.blg
+*.rubbercache
 
 # C/C++
 *.o
