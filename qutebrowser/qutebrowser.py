@@ -23,6 +23,15 @@ def round_to_nearest_in_list(value, values_list):
 
 
 def get_display_dpi():
+    """
+    Get the display DPI (dots per inch) from X resources.
+
+    Uses xrdb to query the Xft.dpi value from X resources. This is used
+    to determine appropriate scaling for UI elements and fonts.
+
+    Returns:
+        float: The detected DPI value, or 96 (default value) if detection fails
+    """
     try:
         # Run `xrdb -query` to get X resources
         output = subprocess.check_output(['xrdb', '-query'], text=True)
@@ -38,11 +47,102 @@ def get_display_dpi():
         return 96
 
 
-def compute_desired_zoom_factor(dpi):
-    preferred_zoom_factors = [25, 33, 50, 67, 75, 90, 100, 110, 125, 150, 200, ]
-    wanted_zoom_factor = 100 * (dpi / 96)**.5
-    # print(f'wanted zoom factor: {wanted_zoom_factor}')
-    return round_to_nearest_in_list(wanted_zoom_factor, preferred_zoom_factors)
+def get_display_resolution():
+    """
+    Get the current display resolution.
+
+    Returns:
+        tuple: (width, height) in pixels, or `None` if detection fails
+    """
+    try:
+        # Try xrandr first
+        output = subprocess.check_output(['xrandr'], text=True)
+        match = re.search(r' connected.* (\d+)x(\d+)', output)
+        if match:
+            return (int(match.group(1)), int(match.group(2)))
+
+        # Fallback to xdpyinfo
+        output = subprocess.check_output(['xdpyinfo'], text=True)
+        match = re.search(r'dimensions:\s*(\d+)x(\d+)', output)
+        if match:
+            return (int(match.group(1)), int(match.group(2)))
+    except (subprocess.CalledProcessError, FileNotFoundError) as e:
+        print(sys.stderr, "Failed to detect display resolution:", e)
+
+    return None
+
+
+def compute_desired_zoom_factor(width, height, dpi):
+    """
+    Compute the optimal zoom factor based on display dimensions and DPI.
+
+    The goal is to maintain consistent physical text size across different displays.
+    This implementation considers:
+    - Physical display size (calculated from resolution and DPI)
+    - Viewing distance (estimated from display size)
+    - Target physical text size for readability
+
+    Args:
+        width: Display width in pixels
+        height: Display height in pixels
+        dpi: Display DPI (dots per inch)
+
+    Returns:
+        Optimal zoom factor as a percentage (rounded to nearest preferred value)
+    """
+    # List of standard zoom factors supported by most browsers
+    preferred_zoom_factors = [25, 33, 50, 67, 75, 90, 100, 110, 125, 150, 175, 200]
+
+    # Calculate physical display dimensions in inches
+    physical_width_inches = width / dpi
+    physical_height_inches = height / dpi
+    diagonal_inches = math.sqrt(physical_width_inches**2 + physical_height_inches**2)
+
+    # Reference DPI (standard desktop DPI)
+    reference_dpi = 96
+
+    # Base zoom calculation: scale proportionally to DPI
+    # This ensures that 1 CSS pixel maintains consistent physical size
+    # NOTE: QT_AUTO_SCREEN_SCALE_FACTOR already normalizes for the DPI
+    base_zoom = 100  # (dpi / reference_dpi) * 100
+
+    # Apply display size adjustment factor
+    # Smaller displays (laptops) typically need less zoom than larger displays (monitors)
+    # because they're viewed from closer distances
+    if diagonal_inches < 13:  # Small laptop
+        size_factor = 0.75
+    elif diagonal_inches < 15:  # Standard laptop
+        size_factor = 0.80
+    elif diagonal_inches < 20:  # Large laptop / small monitor
+        size_factor = 0.85
+    elif diagonal_inches < 24:  # Standard monitor
+        size_factor = 1.0
+    elif diagonal_inches < 27:  # Large monitor
+        size_factor = 1.00
+    else:  # Very large monitor
+        size_factor = 1.10
+
+    # Apply aspect ratio adjustment
+    # Ultra-wide displays may benefit from slightly different scaling
+    aspect_ratio = width / height
+    if aspect_ratio > 2.0:  # Ultra-wide display
+        aspect_factor = 1.05
+    else:
+        aspect_factor = 1.0
+
+    # Calculate final zoom factor
+    zoom_factor = base_zoom * size_factor * aspect_factor
+
+    # Apply reasonable bounds
+    zoom_factor = round_to_nearest_in_list(zoom_factor, preferred_zoom_factors)
+
+    print(f'Display diagonal: {diagonal_inches:.1f}" | Base zoom: {base_zoom:.0f}% | '
+          f'Size factor: {size_factor} | Final zoom: {zoom_factor:.0f}%\n')
+    sys.stdout.flush()
+    sys.stderr.flush()
+
+    # Round to the nearest preferred zoom factor
+    return zoom_factor
 
 
 # Given the display \p dpi, computes and returns the default font size using a simple linear equation of the form
@@ -54,7 +154,7 @@ def compute_desired_zoom_factor(dpi):
 #
 # NOTE: The font size is relative to the zoom factor.  First, tune your zoom factor to your liking.  Only when you are
 # satisfied with the zoom factor, start tuning the font size.
-def compute_font_size(dpi):
+def compute_ui_font_size(width, height, dpi):
     # 169 dpi ⇒ 8 pt
     # 69 dpi ⇒ 13 pt
     return round(-.05 * dpi + 16.45)
@@ -63,18 +163,19 @@ def compute_font_size(dpi):
 def configure():
     global c, config
 
+    width, height = get_display_resolution()
     dpi = get_display_dpi()
-    default_font_size = compute_font_size(dpi)
-    print(f'default font size: {default_font_size}')
+    print(f'Display of {width}x{height} has {dpi} DPI')
+    default_font_size = compute_ui_font_size(width, height, dpi)
+    # print(f'default font size: {default_font_size}')
     large_font_size = default_font_size + 1
     larger_font_size = default_font_size + 2
 
-
-    ########################################################################################################################
+    ####################################################################################################################
     #
     # Config starts here
     #
-    ########################################################################################################################
+    ####################################################################################################################
     config.load_autoconfig()
 
     config.set('qt.args', [
@@ -92,9 +193,9 @@ def configure():
     # Turn on QT HighDPI scaling.
     c.qt.highdpi = True
 
-    c.statusbar.show    = 'in-mode'  # use this setting once the weird "jump-to-top" behaviour is fixed
-    # c.statusbar.show    = 'always'
-    c.tabs.show         = 'multiple'
+    c.statusbar.show = 'in-mode'  # use this setting once the weird "jump-to-top" behaviour is fixed
+    # c.statusbar.show = 'always'
+    c.tabs.show = 'multiple'
 
     c.tabs.pinned.frozen = False
 
@@ -103,7 +204,7 @@ def configure():
 
     # Zoom factor
     # Enable Qt auto scaling by globally setting QT_AUTO_SCREEN_SCALE_FACTOR=1 (e.g. in /etc/profile)
-    preferred_zoom_factor = compute_desired_zoom_factor(dpi)
+    preferred_zoom_factor = compute_desired_zoom_factor(width, height, dpi)
     c.zoom.default = f'{preferred_zoom_factor:.0f}%'
 
     # Fonts
@@ -111,9 +212,9 @@ def configure():
     c.fonts.web.family.serif        = 'Times New Roman'
     c.fonts.web.family.sans_serif   = 'Helvetica'
     c.fonts.web.family.standard     = 'Helvetica'
-    c.fonts.web.size.default = default_font_size
-    c.fonts.web.size.default_fixed = default_font_size
-    c.fonts.web.size.minimum = int(.8 * default_font_size)
+    c.fonts.web.size.default = 13  # default_font_size
+    c.fonts.web.size.default_fixed = 13  # default_font_size
+    c.fonts.web.size.minimum = 11  # int(.8 * default_font_size)
 
     c.fonts.completion.category = f'bold {large_font_size}pt Source Code Pro'
     c.fonts.completion.entry    = f'{default_font_size}pt Source Code Pro'
