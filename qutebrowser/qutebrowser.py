@@ -193,11 +193,23 @@ def configure():
     # Turn on QT HighDPI scaling.
     c.qt.highdpi = True
 
-    c.statusbar.show = 'in-mode'  # use this setting once the weird "jump-to-top" behaviour is fixed
-    # c.statusbar.show = 'always'
+    c.tabs.position = 'left'
     c.tabs.show = 'multiple'
-
     c.tabs.pinned.frozen = False
+    c.tabs.padding = dict(bottom=2, top=1, left=0, right=5)
+    c.tabs.select_on_remove = 'last-used'
+    c.tabs.title.format = '[{aligned_index}] {audio}{current_title}'
+    c.tabs.title.format_pinned = '[{aligned_index}] 📌{audio}{current_title}'
+    c.tabs.mode_on_change = 'restore'
+    c.tabs.indicator.width = 2  # in pixels
+    c.tabs.indicator.padding = dict(bottom=2, top=2, left=0, right=2)
+    c.tabs.width = '25%'
+    c.tabs.close_mouse_button = 'none'
+    c.tabs.close_mouse_button_on_bar = 'ignore'
+
+
+    # c.statusbar.show = 'in-mode'  # use this setting once the weird "jump-to-top" behaviour is fixed
+    # c.statusbar.show = 'always'
 
     c.colors.webpage.preferred_color_scheme = 'dark'
     #  c.colors.wegpage.darkmode.policy.images = 'smart'
@@ -230,7 +242,6 @@ def configure():
     c.fonts.tabs.selected       = f'{default_font_size}pt Helvetica'
     c.fonts.tabs.unselected     = f'{default_font_size}pt Helvetica'
 
-    c.tabs.padding              = dict(bottom = 1, top = 2, left = 5, right = 5)
     c.statusbar.padding         = dict(bottom = 1, top = 4, left = 5, right = 0)
 
     # User CSS
@@ -240,23 +251,119 @@ def configure():
     # Colorscheme
     ########################################################################################################################
     solarized = {
-            'base03': '#002b36',
-            'base02': '#073642',
-            'base01': '#586e75',
-            'base00': '#657b83',
-            'base0': '#839496',
-            'base1': '#93a1a1',
-            'base2': '#eee8d5',
-            'base3': '#fdf6e3',
-            'yellow': '#b58900',
-            'orange': '#cb4b16',
-            'red': '#dc322f',
-            'magenta': '#d33682',
-            'violet': '#6c71c4',
-            'blue': '#268bd2',
-            'cyan': '#2aa198',
-            'green': '#859900'
-            }
+        'base03': '#002b36',
+        'base02': '#073642',
+        'base01': '#586e75',
+        'base00': '#657b83',
+        'base0': '#839496',
+        'base1': '#93a1a1',
+        'base2': '#eee8d5',
+        'base3': '#fdf6e3',
+        'yellow': '#b58900',
+        'orange': '#cb4b16',
+        'red': '#dc322f',
+        'magenta': '#d33682',
+        'violet': '#6c71c4',
+        'blue': '#268bd2',
+        'cyan': '#2aa198',
+        'green': '#859900'
+    }
+    night_owl = {
+        'fg': '#d6deeb',
+        'bg': '#021727',
+        'folded_bg': '#092135',
+        'cursor_fg': '#805a3e',
+        'cursor_bg': '#80a4c2',
+        'line_number_fg': '#4b6479',
+        'line_number_active_fg': '#c5e4fc',
+        'sign_add': '#9ccc65',
+        'sign_change': '#e2b93d',
+        'sign_delete': '#ef5350',
+        'indent_guide': '#1f395d',
+        'indent_guide_active': '#7e97ac',
+        'visual': '#1d3b53',
+        'match_paren': '#1e364a',
+        'search_blue': '#063e5d',
+        'incremental_search_blue': '#2E485C',
+        'error_red': '#ef5350',
+        'word_highlight': '#33384d',
+        'word_highlight_write': '#2f3350',
+        'changed': '#a2bffc',
+        'quickfix_line': '#0e293f',
+        'ui_border': '#5f7e97',
+        'ui_border2': '#20395d',
+        'nvim_tree_file': '#89a4bb',
+        'nvim_tree_indent_marker': '#585858',
+        'tab_active_bg': '#0b2942',
+        'tab_inactive_bg': '#01111d',
+        'title': '#82b1ff',
+        'parameter': '#d7dbe0',
+        'string_delimiter': '#d9f5dd',
+        'dark': '#010d18',
+        'dark2': '#021320',
+        'dark3': '#99b76d23',
+        'white': '#ffffff',
+        'white2': '#eeefff',
+        'dark_white': '#cccccc',
+        'gray': '#262a39',
+        'gray2': '#d2dee7',
+        'gray3': '#36414a',
+        'gray4': '#d6deeb80',
+        'gray5': '#969696',
+        'gray6': '#7e97ac',
+        'light_blue': '#78ccf0',
+        'blue': '#82aaff',
+        'blue2': '#0b253a',
+        'blue3': '#122d42',
+        'blue4': '#1b90dd4d',
+        'blue5': '#234d70',
+        'blue6': '#234d708c',
+        'blue7': '#395a75',
+        'blue8': '#5ca7e4',
+        'blue9': '#5f7e9779',
+        'blue10': '#697098',
+        'blue11': '#8eace3',
+        'blue12': '#b2ccd6',
+        'blue13': '#072232',
+        'blue14': '#273845',
+        'blue15': '#169fff',
+        'green': '#c5e478',
+        'green2': '#6CC85E',
+        'light_cyan': '#caece6',
+        'cyan': '#6ae9f0',
+        'cyan2': '#7fdbca',
+        'cyan3': '#7fdbcaff',
+        'cyan4': '#80cbc4',
+        'cyan5': '#baebe2',
+        'dark_cyan': '#637777',
+        'light_red': '#ff869a',
+        'red': '#ff5874',
+        'red2': '#ff6363',
+        'red3': '#ef535090',
+        # dark_red '#ab0300f2',
+        'dark_red': '#ab0300',
+        'light_orange': '#ecc48d',
+        'orange': '#f78c6c',
+        'orange2': '#ffcb8b',
+        'light_yellow': '#faf39f',
+        'yellow': '#ffd602',
+        'yellow2': '#b39554',
+        'yellow3': '#fad430',
+        'yellow4': '#ffeb95',
+        'yellow5': '#ffeb95cc',
+        'light_purple': '#a599e9',
+        'purple': '#7e57c2',
+        'purple2': '#5166F0',
+        'purple3': '#da70d6',
+        'purple4': '#7986e7',
+        'dark_purple': '#2E2D5E',
+        'magenta': '#c792ea',
+        'magenta2': '#c789d6',
+        'magenta3': '#d1aaff',
+        'magenta4': '#ff2c83',
+        'magenta5': '#e2a2f433',
+        'magenta6': '#f6bbe533',
+    }
 
     ## Background color of the completion widget category headers.
     ## Type: QssColor
@@ -437,53 +544,18 @@ def configure():
     ## Type: QssColor
     c.colors.prompts.selected.bg = solarized['base01']
 
-    ## Background color of the statusbar in caret mode.
-    ## Type: QssColor
     c.colors.statusbar.caret.bg = solarized['blue']
-
-    ## Foreground color of the statusbar in caret mode.
-    ## Type: QssColor
     c.colors.statusbar.caret.fg = solarized['base3']
-
-    ## Background color of the statusbar in caret mode with a selection.
-    ## Type: QssColor
     c.colors.statusbar.caret.selection.bg = solarized['violet']
-
-    ## Foreground color of the statusbar in caret mode with a selection.
-    ## Type: QssColor
     c.colors.statusbar.caret.selection.fg = solarized['base3']
-
-    ## Background color of the statusbar in command mode.
-    ## Type: QssColor
     c.colors.statusbar.command.bg = solarized['base03']
-
-    ## Foreground color of the statusbar in command mode.
-    ## Type: QssColor
     c.colors.statusbar.command.fg = solarized['base3']
-
-    ## Background color of the statusbar in private browsing + command mode.
-    ## Type: QssColor
     c.colors.statusbar.command.private.bg = solarized['base01']
-
-    ## Foreground color of the statusbar in private browsing + command mode.
-    ## Type: QssColor
     c.colors.statusbar.command.private.fg = solarized['base3']
-
-    ## Background color of the statusbar in insert mode.
-    ## Type: QssColor
     c.colors.statusbar.insert.bg = solarized['green']
-
-    ## Foreground color of the statusbar in insert mode.
-    ## Type: QssColor
     c.colors.statusbar.insert.fg = solarized['base3']
-
-    ## Background color of the statusbar.
-    ## Type: QssColor
-    c.colors.statusbar.normal.bg = solarized['base03']
-
-    ## Foreground color of the statusbar.
-    ## Type: QssColor
-    c.colors.statusbar.normal.fg = solarized['base3']
+    c.colors.statusbar.normal.bg = night_owl['folded_bg']
+    c.colors.statusbar.normal.fg = night_owl['fg']
 
     ## Background color of the statusbar in passthrough mode.
     ## Type: QssColor
@@ -531,29 +603,28 @@ def configure():
     ## Type: QssColor
     c.colors.statusbar.url.warn.fg = solarized['yellow']
 
-    ## Background color of the tab bar.
-    ## Type: QtColor
-    # c.colors.tabs.bar.bg = '#555555'
-
-    ## Background color of unselected even tabs.
-    ## Type: QtColor
-    c.colors.tabs.even.bg = solarized['base01']
-
-    ## Foreground color of unselected even tabs.
-    ## Type: QtColor
-    c.colors.tabs.even.fg = solarized['base2']
-
-    ## Color for the tab indicator on errors.
-    ## Type: QtColor
-    c.colors.tabs.indicator.error = solarized['red']
-
-    ## Color gradient start for the tab indicator.
-    ## Type: QtColor
-    c.colors.tabs.indicator.start = solarized['violet']
-
-    ## Color gradient end for the tab indicator.
-    ## Type: QtColor
-    c.colors.tabs.indicator.stop = solarized['orange']
+    # Tabs
+    # c.colors.tabs.indicator.system = 'rgb'
+    c.colors.tabs.bar.bg = night_owl['folded_bg']
+    c.colors.tabs.odd.bg = night_owl['tab_inactive_bg']
+    c.colors.tabs.even.bg = night_owl['tab_active_bg']
+    c.colors.tabs.odd.fg = night_owl['fg']
+    c.colors.tabs.even.fg = night_owl['fg']
+    c.colors.tabs.pinned.odd.bg = night_owl['tab_inactive_bg']
+    c.colors.tabs.pinned.even.bg = night_owl['tab_active_bg']
+    c.colors.tabs.pinned.odd.fg = night_owl['fg']
+    c.colors.tabs.pinned.even.fg = night_owl['fg']
+    c.colors.tabs.selected.odd.bg = night_owl['cursor_bg']
+    c.colors.tabs.selected.even.bg = night_owl['cursor_bg']
+    c.colors.tabs.selected.odd.fg = night_owl['white2']
+    c.colors.tabs.selected.even.fg = night_owl['white2']
+    c.colors.tabs.pinned.selected.odd.bg = night_owl['cursor_bg']
+    c.colors.tabs.pinned.selected.even.bg = night_owl['cursor_bg']
+    c.colors.tabs.pinned.selected.odd.fg = night_owl['white2']
+    c.colors.tabs.pinned.selected.even.fg = night_owl['white2']
+    c.colors.tabs.indicator.error = night_owl['error_red']
+    c.colors.tabs.indicator.start = night_owl['cyan']
+    c.colors.tabs.indicator.stop = night_owl['green']
 
     ## Color gradient interpolation system for the tab indicator.
     ## Type: ColorSystem
@@ -562,31 +633,6 @@ def configure():
     ##   - hsv: Interpolate in the HSV color system.
     ##   - hsl: Interpolate in the HSL color system.
     ##   - none: Don't show a gradient.
-    # c.colors.tabs.indicator.system = 'rgb'
-
-    ## Background color of unselected odd tabs.
-    ## Type: QtColor
-    c.colors.tabs.odd.bg = solarized['base01']
-
-    ## Foreground color of unselected odd tabs.
-    ## Type: QtColor
-    c.colors.tabs.odd.fg = solarized['base2']
-
-    ## Background color of selected even tabs.
-    ## Type: QtColor
-    c.colors.tabs.selected.even.bg = solarized['base03']
-
-    ## Foreground color of selected even tabs.
-    ## Type: QtColor
-    c.colors.tabs.selected.even.fg = solarized['base3']
-
-    ## Background color of selected odd tabs.
-    ## Type: QtColor
-    c.colors.tabs.selected.odd.bg = solarized['base03']
-
-    ## Foreground color of selected odd tabs.
-    ## Type: QtColor
-    c.colors.tabs.selected.odd.fg = solarized['base3']
 
     ## Background color for webpages if unset (or empty to use the theme's
     ## color)
@@ -610,9 +656,6 @@ def configure():
 
     # No autoplay
     c.content.autoplay = False
-
-    # Persist insert mode for each tab
-    c.tabs.mode_on_change = 'restore'
 
     # Set hint characters for Colemak Mod-DH layout
     c.hints.chars = 'awftnuyorsei'
@@ -666,6 +709,13 @@ def configure():
 
     # Temporarily grant JS access to the clipboard
     config.bind('<Space>sc', 'set -t content.javascript.clipboard access ;; message-warning "Clipboard enabled for 10 seconds" ;; cmd-later 10s set content.javascript.clipboard none ;; cmd-later 10s message-warning "Clipboard disabled"')
+
+    # Toggle tab bar
+    config.bind('<Space>tt', 'config-cycle tabs.show switching multiple')
+
+    # Natural vertical tab movement
+    config.bind('J', 'tab-next')
+    config.bind('K', 'tab-prev')
 
     # Tab-give
     config.bind('<Space>tgn', 'tab-give')       # new window
