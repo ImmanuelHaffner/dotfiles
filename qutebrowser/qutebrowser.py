@@ -713,6 +713,9 @@ def configure():
     # Toggle tab bar
     config.bind('<Space>tt', 'config-cycle tabs.show switching multiple')
 
+    # Save session
+    config.bind('<Space>ss', 'session-save')
+
     # Natural vertical tab movement
     config.bind('J', 'tab-next')
     config.bind('K', 'tab-prev')
@@ -721,6 +724,9 @@ def configure():
     config.bind('<Space>tgn', 'tab-give')       # new window
     config.bind('<Space>tg0', 'tab-give 0')     # window 0
     config.bind('<Space>tg1', 'tab-give 1')     # window 1
+    config.bind('<Space>tg2', 'tab-give 2')     # window 2
+    config.bind('<Space>tg3', 'tab-give 3')     # window 3
+    config.bind('<Space>tg4', 'tab-give 4')     # window 4
 
     # Toggle dark mode
     config.bind('<Space>d', 'config-cycle colors.webpage.darkmode.enabled true false')
