@@ -43,7 +43,8 @@ function command_nvim()
         exit 1
     fi
 
-    NEOVIDE="neovide --fork --server $1:${NVIM_SERVER_PORT}"
+    # We provide --grid to work around a nasty Neovide rendering bug
+    NEOVIDE="neovide --grid 500x100 --fork --server $1:${NVIM_SERVER_PORT}"
     echo "${NEOVIDE}"
     ${NEOVIDE}
 }
