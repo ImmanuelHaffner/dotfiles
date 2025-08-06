@@ -710,8 +710,8 @@ def configure():
     # Temporarily grant JS access to the clipboard
     config.bind('<Space>sc', 'set -t content.javascript.clipboard access ;; message-warning "Clipboard enabled for 10 seconds" ;; cmd-later 10s set content.javascript.clipboard none ;; cmd-later 10s message-warning "Clipboard disabled"')
 
-    # Toggle tab bar
-    config.bind('<Space>tt', 'config-cycle tabs.show switching multiple')
+    # Toggle tab bar and status line
+    config.bind('<Space>tt', 'config-cycle tabs.show switching multiple ;; config-cycle statusbar.show in-mode always')
 
     # Save session
     config.bind('<Space>ss', 'session-save')
