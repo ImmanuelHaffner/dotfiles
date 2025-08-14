@@ -606,12 +606,12 @@ def configure():
     # Tabs
     # c.colors.tabs.indicator.system = 'rgb'
     c.colors.tabs.bar.bg = night_owl['folded_bg']
-    c.colors.tabs.odd.bg = night_owl['tab_inactive_bg']
-    c.colors.tabs.even.bg = night_owl['tab_active_bg']
+    c.colors.tabs.odd.bg = night_owl['blue3']
+    c.colors.tabs.even.bg = night_owl['blue2']
     c.colors.tabs.odd.fg = night_owl['fg']
     c.colors.tabs.even.fg = night_owl['fg']
-    c.colors.tabs.pinned.odd.bg = night_owl['tab_inactive_bg']
-    c.colors.tabs.pinned.even.bg = night_owl['tab_active_bg']
+    c.colors.tabs.pinned.odd.bg = night_owl['blue3']
+    c.colors.tabs.pinned.even.bg = night_owl['blue2']
     c.colors.tabs.pinned.odd.fg = night_owl['fg']
     c.colors.tabs.pinned.even.fg = night_owl['fg']
     c.colors.tabs.selected.odd.bg = night_owl['cursor_bg']
