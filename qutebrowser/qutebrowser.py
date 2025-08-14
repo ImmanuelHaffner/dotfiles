@@ -110,13 +110,13 @@ def compute_desired_zoom_factor(width, height, dpi):
     # Smaller displays (laptops) typically need less zoom than larger displays (monitors)
     # because they're viewed from closer distances
     if diagonal_inches < 13:  # Small laptop
-        size_factor = 0.75
-    elif diagonal_inches < 15:  # Standard laptop
-        size_factor = 0.80
-    elif diagonal_inches < 20:  # Large laptop / small monitor
         size_factor = 0.85
+    elif diagonal_inches < 15:  # Standard laptop
+        size_factor = 0.90
+    elif diagonal_inches < 20:  # Large laptop / small monitor
+        size_factor = 0.95
     elif diagonal_inches < 24:  # Standard monitor
-        size_factor = 1.0
+        size_factor = 1.00
     elif diagonal_inches < 27:  # Large monitor
         size_factor = 1.00
     else:  # Very large monitor
