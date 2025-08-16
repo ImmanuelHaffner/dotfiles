@@ -1,7 +1,9 @@
 os:
   editPreset: 'nvim'
-  # Using -l here to change to the previous window via ":wincmd p".
-  edit: "nvr -l --remote-silent {{filename}}"
+  # Explicitly close Lazygit with <C-q> and then open the file
+  edit: "nvr --remote-send '<C-q>' && nvr --remote-tab-silent {{filename}}"
+  editAtLine: "nvr --remote-send '<C-q>' && nvr --remote-tab-silent +{{line}} {{filename}}"
+promptToReturnFromSubprocess: false
 git:
   commit:
     autoWrapCommitMessage: true
