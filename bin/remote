@@ -43,8 +43,14 @@ function command_nvim()
         exit 1
     fi
 
+    # Establish port forwarding via SSH, if it doesn't exist yet.
+    if ! pgrep -c -f "ssh -fN -L ${NVIM_SERVER_PORT}" >/dev/null; then
+        echo "Establishing port forwarding to $1:${NVIM_SERVER_PORT}"
+        ssh -fN -L ${NVIM_SERVER_PORT}:localhost:${NVIM_SERVER_PORT} $1 || true
+    fi
+
     # We provide --grid to work around a nasty Neovide rendering bug
-    NEOVIDE="neovide --grid 500x100 --fork --server $1:${NVIM_SERVER_PORT}"
+    NEOVIDE="neovide --grid 500x100 --fork --server localhost:${NVIM_SERVER_PORT}"
     echo "${NEOVIDE}"
     ${NEOVIDE}
 }
