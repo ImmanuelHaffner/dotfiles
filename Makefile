@@ -124,4 +124,4 @@ gpg:
 	install -D gpg/* "${HOME}/.gnupg/"
 
 vectorcode:
-	install -T vectorcode-config.json5 "${HOME}/.config/vectorcode/config.json5"
+	install -D vectorcode-config.json5 "${HOME}/.config/vectorcode/config.json5"
