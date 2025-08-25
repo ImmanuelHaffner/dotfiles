@@ -19,6 +19,8 @@
     zathura \
     zshrc
 
+SHELL := /bin/bash
+
 XXX:
 	$(error Missing target. Use 'make install' to install all configurations or 'make <APP>' to install the \
         configuration for a specific app)
