@@ -2,6 +2,7 @@
 .PHONY: \
     bin \
     cgdb \
+    clangd \
     ctags \
     erdtreerc \
     git \
@@ -28,6 +29,7 @@ XXX:
 install: \
     bin \
     cgdb \
+    clangd \
     ctags \
     erdtreerc \
     git \
