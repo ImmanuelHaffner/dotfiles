@@ -2,12 +2,13 @@
 
 CompileFlags:
   Add: [
-    -W
-    -Wall
-    -pedantic,-Wno-variadic-macros
-    -Wno-gnu-zero-variadic-macro-arguments
-    -Wno-gnu-label-as-value
-    -Wno-vla-extension
+    -W,
+    -Wall,
+    -pedantic,
+    -Wno-variadic-macros,
+    -Wno-gnu-zero-variadic-macro-arguments,
+    -Wno-gnu-label-as-value,
+    -Wno-vla-extension,
     -Wno-gnu-conditional-omitted-operand
   ]
 ---
@@ -16,6 +17,7 @@ If:
   PathMatch: [.*\.h, .*\.c]
 CompileFlags:
   Add: [-xc, -std=c11]
+  Compiler: clang
 ---
 ##### C++ sources: use the C++20 standard ##############################################################################
 If:
