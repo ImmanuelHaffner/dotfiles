@@ -1,8 +1,8 @@
 os:
   editPreset: 'nvim'
   # Explicitly close Lazygit with <C-q> and then open the file
-  edit: "nvr --remote-send '<C-q>' && nvr --remote-tab-silent {{filename}}"
-  editAtLine: "nvr --remote-send '<C-q>' && nvr --remote-tab-silent +{{line}} {{filename}}"
+  edit: nvr --remote-send '<C-q>' && nvr --remote-send ':silent tabedit '{{filename}}'<cr>'
+  editAtLine: nvr --remote-send '<C-q>' && nvr --remote-send ':silent tabedit +'{{line}}' '{{filename}}'<cr>'
 promptToReturnFromSubprocess: false
 git:
   commit:
