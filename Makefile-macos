@@ -1,0 +1,122 @@
+.PHONY: XXX install
+.PHONY: \
+    bin \
+    cgdb \
+    clangd \
+    ctags \
+    erdtreerc \
+    git \
+    gpg \
+    htop \
+    latex \
+    lazygit \
+    matplotlib \
+    nvim \
+    qutebrowser \
+    screen \
+    vectorcode \
+    wezterm \
+    zshrc
+
+SHELL := /bin/bash
+
+XXX:
+	$(error Missing target. Use 'make install' to install all configurations or 'make <APP>' to install the \
+        configuration for a specific app)
+
+install: \
+    bin \
+    cgdb \
+    clangd \
+    ctags \
+    erdtreerc \
+    git \
+    gpg \
+    htop \
+    latex \
+    lazygit \
+    matplotlib \
+    nvim \
+    qutebrowser \
+    screen \
+    vectorcode \
+    wezterm \
+    zshrc
+
+nvim:
+	@make -C neovimrc/ install
+
+zshrc:
+	@make -C zshrc/ install
+
+git:
+	install -m 644 gitconfig "${HOME}/.gitconfig"
+	install -m 644 gitignore "${HOME}/.gitignore"
+	-git config --global user.signingkey $(shell gpg --list-secret-keys --keyid-format LONG "haffner.immanuel@gmail.com" | grep sec | cut -d '/' -f 2 | cut -d ' ' -f 1)
+
+cgdb:
+	mkdir -p "${HOME}/.cgdb"
+	install -m 644 cgdbrc "${HOME}/.cgdb/cgdbrc"
+	install -m 644 gdbinit "${HOME}/.gdbinit"
+
+qutebrowser:
+	mkdir -p "${HOME}/.config/qutebrowser"
+	mkdir -p "${HOME}/.config/qutebrowser/greasemonkey"
+	install -m 644 qutebrowser/qutebrowser.py "${HOME}/.config/qutebrowser/config.py"
+	install -m 644 qutebrowser/greasemonkey/* "${HOME}/.config/qutebrowser/greasemonkey/"
+	@echo "Note: Setting default browser on macOS requires manual configuration in System Preferences"
+
+ctags:
+	install -m 644 ctags "${HOME}/.ctags"
+
+screen:
+	install -m 644 screenrc "${HOME}/.screenrc"
+
+latex:
+	install -m 644 latexmkrc "${HOME}/.latexmkrc"
+
+matplotlib:
+	mkdir -p "${HOME}/.config"
+	cp -r matplotlib "${HOME}/.config/"
+
+bin:
+	mkdir -p "${HOME}/.local/bin"
+	install -m 755 bin/* "${HOME}/.local/bin/"
+
+clangd:
+	@>&2 echo "WARNING: Installing a user-wide clangd config currently breaks clangd support in mutable"
+	@read -n1 -p "Install anyway? [y/N]" choice; \
+        case $${choice} in \
+            y|Y) \
+                mkdir -p "${HOME}/.config/clangd"; \
+                cp clangd.yaml "${HOME}/.config/clangd/config.yaml"; \
+                ;; \
+            *) ;; \
+        esac
+
+wezterm:
+	install -m 644 wezterm.lua "${HOME}/.wezterm.lua"
+	tempfile=$$(mktemp) \
+             && curl -o $$tempfile https://raw.githubusercontent.com/wez/wezterm/master/termwiz/data/wezterm.terminfo \
+             && tic -x -o ~/.terminfo $$tempfile \
+             && rm $$tempfile
+
+htop:
+	mkdir -p "${HOME}/.config/htop"
+	install -m 644 htoprc "${HOME}/.config/htop/htoprc"
+
+erdtree:
+	install -m 644 erdtreerc "${HOME}/.erdtreerc"
+
+lazygit:
+	mkdir -p "${HOME}/.config/lazygit"
+	install -m 644 lazygit.yml "${HOME}/.config/lazygit/config.yml"
+
+gpg:
+	mkdir -p "${HOME}/.gnupg"
+	install -m 600 gpg/* "${HOME}/.gnupg/"
+	chmod 700 "${HOME}/.gnupg"
+
+vectorcode:
+	mkdir -p "${HOME}/.config/vectorcode"
+	install -m 644 vectorcode-config.json5 "${HOME}/.config/vectorcode/config.json5"
