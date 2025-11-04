@@ -17,7 +17,31 @@ end
 -- This table will hold the configuration.
 local config = {}
 
-local dpi = os.capture[[xrdb -query | grep Xft.dpi | awk '{print $2}']]
+local function get_dpi()
+    local os_name = wezterm.target_triple
+    
+    if os_name:find("linux") then
+        -- Linux: Use xrdb to get DPI
+        local dpi_str = os.capture[[xrdb -query | grep Xft.dpi | awk '{print $2}']]
+        return tonumber(dpi_str) or 96  -- fallback to 96 DPI if detection fails
+    elseif os_name:find("darwin") then
+        -- macOS: Use system_profiler to get display info
+        local display_info = os.capture[[system_profiler SPDisplaysDataType | grep -B 3 "Main Display: Yes" | grep "Resolution" | head -1]]
+        -- Extract DPI from output like "Resolution: 2880 x 1800 Retina"
+        -- For Retina displays, macOS reports logical resolution, so we need to calculate actual DPI
+        -- Most modern Macs have ~220 DPI for Retina displays, ~110 for non-Retina
+        if display_info:find("Retina") then
+            return 220  -- High DPI for Retina displays
+        else
+            return 110  -- Standard DPI for non-Retina displays
+        end
+    else
+        -- Fallback for other systems
+        return 96
+    end
+end
+
+local dpi = get_dpi()
 
 -- In newer versions of wezterm, use the config_builder which will
 -- help provide clearer error messages
