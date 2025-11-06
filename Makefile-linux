@@ -66,6 +66,7 @@ zathura:
 	install -D zathurarc "${HOME}/.config/zathura/zathurarc"
 
 qutebrowser:
+	mkdir -p "${HOME}/.config/qutebrowser/"
 	install -D qutebrowser/qutebrowser.py "${HOME}/.config/qutebrowser/config.py"
 	-xdg-settings set default-web-browser org.qutebrowser.qutebrowser.desktop
 	-xdg-mime default org.qutebrowser.qutebrowser.desktop x-scheme-handler/http
@@ -88,6 +89,7 @@ matplotlib:
 	install -dD matplotlib "${HOME}/.config/"
 
 bin:
+	mkdir -p "${HOME}/.local/bin/"
 	install -D bin/* "${HOME}/.local/bin/"
 
 clangd:
@@ -126,4 +128,5 @@ gpg:
 	install -D gpg/* "${HOME}/.gnupg/"
 
 vectorcode:
+	mkdir -p "${HOME}/.config/vectorcode"
 	install -D vectorcode-config.json5 "${HOME}/.config/vectorcode/config.json5"
