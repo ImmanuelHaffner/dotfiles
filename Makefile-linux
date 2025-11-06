@@ -71,6 +71,7 @@ qutebrowser:
 	-xdg-settings set default-web-browser org.qutebrowser.qutebrowser.desktop
 	-xdg-mime default org.qutebrowser.qutebrowser.desktop x-scheme-handler/http
 	-xdg-mime default org.qutebrowser.qutebrowser.desktop x-scheme-handler/https
+	mkdir -p "${HOME}/.config/qutebrowser/greasemonkey"
 	install -D qutebrowser/greasemonkey/* "${HOME}/.config/qutebrowser/greasemonkey/"
 
 ctags:
