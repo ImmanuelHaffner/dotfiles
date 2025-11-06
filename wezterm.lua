@@ -19,7 +19,7 @@ local config = {}
 
 local function get_dpi()
     local os_name = wezterm.target_triple
-    
+
     if os_name:find("linux") then
         -- Linux: Use xrdb to get DPI
         local dpi_str = os.capture[[xrdb -query | grep Xft.dpi | awk '{print $2}']]
