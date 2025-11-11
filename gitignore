@@ -116,3 +116,6 @@ callgrind.out.*
 
 # Lua
 .luarc.json
+
+# Bazel
+.bazelproject
