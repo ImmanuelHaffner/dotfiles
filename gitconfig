@@ -59,6 +59,8 @@
     untrack = rm --cache --
     upbase = rebase @{u}
     linestat = ! "f() { git ls-files | while read f; do git blame -w -M -C -C --line-porcelain \"$f\" | grep -I '^author '; done | sort -f | uniq -ic | sort -n --reverse; }; f"
+    pp = "!bash -c \"new_args=(); remote=\\\"\\\"; ref=\\\"\\\"; start=0; if [[ \\$0 == \\\"bash\\\" ]]; then start=1; fi; for ((i=start; i<=\\$#; i++)); do arg=\\${!i}; if [[ \\\"\\$arg\\\" != -* ]]; then if [[ \\\"\\$remote\\\" == \\\"\\\" ]]; then remote=\\\"\\$arg\\\"; new_args+=(\\\"\\$arg\\\"); else if [[ \\$ref == \\\"\\\" ]]; then ref=\\\"\\$arg\\\"; fi; if [[ \\\"\\$ref\\\" != immanuel-haffner_data/* ]]; then new_args+=(\\\"\\$arg:immanuel-haffner_data/\\$arg\\\"); else new_args+=(\\\"\\$arg\\\"); fi; fi; else new_args+=(\\\"\\$arg\\\"); fi; done; if [[ \\$remote == \\\"\\\" ]]; then new_args+=(\\\"origin\\\"); fi; if [[ \\$ref == \\\"\\\" ]]; then branch=\\$(git branch --show-current); if [[ \\\"\\$branch\\\" != immanuel-haffner_data/* ]]; then new_args+=(\\\"\\$branch:immanuel-haffner_data/\\$branch\\\"); else new_args+=(\\\"\\$branch\\\"); fi; fi; git push -u \\\"\\${new_args[@]}\\\"\" "
+[github "emu"]
 [commit]
     gpgsign = true
 [rerere]
