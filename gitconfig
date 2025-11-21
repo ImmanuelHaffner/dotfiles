@@ -3,7 +3,7 @@
     name = Immanuel Haffner
     email = haffner.immanuel@gmail.com
 [core]
-    excludesfile = /home/immanuel/.gitignore
+    excludesfile = ${HOME}/.gitignore
     autocrlf = input
     pager = delta
 [interactive]
