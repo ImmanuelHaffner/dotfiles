@@ -51,7 +51,7 @@ end
 
 -- This is where you actually apply your config choices
 config.font = wezterm.font("Source Code Pro", {weight="Regular", stretch="Normal", style="Normal"}) -- /usr/share/fonts/adobe-source-code-pro/SourceCodePro-Regular.otf, FontConfig
-config.font_size = compute_font_size(dpi)
+config.font_size = 16 -- compute_font_size(dpi)
 config.warn_about_missing_glyphs = false
 
 -- config.color_scheme = 'Solarized Dark (Gogh)'
@@ -70,7 +70,7 @@ config.window_padding = {
 }
 
 -- Configure tab bar. (Must come after setting color scheme and font.)
-config.enable_tab_bar = false
+config.enable_tab_bar = true
 
 -- Chainging the font size adjusts the rows/columns, not the window size.
 config.adjust_window_size_when_changing_font_size = false
@@ -100,6 +100,10 @@ config.mouse_bindings = {
         action = wezterm.action.Nop,
     },
 }
+
+local tabline = wezterm.plugin.require("https://github.com/michaelbrusegard/tabline.wez")
+tabline.setup()
+tabline.apply_to_config(config)
 
 -- and finally, return the configuration to wezterm
 return config
