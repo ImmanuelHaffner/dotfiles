@@ -6,6 +6,8 @@
     excludesfile = ${HOME}/.gitignore
     autocrlf = input
     pager = delta
+    fsmonitor = true
+    untrackedcache = true
 [interactive]
     diffFilter = delta --color-only
 [delta]
