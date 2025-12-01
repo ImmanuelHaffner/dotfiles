@@ -54,7 +54,7 @@ zshrc:
 	@make -C zshrc/ install
 
 git:
-	envsubst < gitconfig > "${HOME}/.gitconfig"
+	envsubst '$$HOME' < gitconfig > "${HOME}/.gitconfig"
 	install -D gitignore "${HOME}/.gitignore"
 	-git config --global user.signingkey $(shell gpg --list-secret-keys --keyid-format LONG "haffner.immanuel@gmail.com" | grep sec | cut --delimiter='/' -f 2 | cut --delimiter=' ' -f 1)
 
