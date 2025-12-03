@@ -1,0 +1,91 @@
+#!/bin/bash
+
+set -euo pipefail
+
+function info { echo "[arca] $(date) ⏐ INFO: $@"; }
+function error { echo >&2 "[arca] $(date) ⏐ ERROR: $@"; }
+
+ARCA_BIN=/usr/local/bin/arca
+
+ARCA_STARTUP_WAIT=5
+ARCA_STARTUP_MAX_WAIT=30
+
+ARCA_UPDATE_WAIT=30
+ARCA_UPDATE_MAX_WAIT=600
+
+
+info "Checking Arca Status"
+
+# Start the Arca instance
+ARCA_STARTUP_WAIT_TOTAL=0
+while true;
+do
+    STATUS=$("$ARCA_BIN" status | head -n 1)
+    case "$STATUS" in
+        *"running"*)
+            info "Arca is already running"
+            break
+            ;;
+        *"terminated"*)
+            info "Arca is terminated, starting..."
+            "$ARCA_BIN" start
+            rc=$?
+            if [ $rc -eq 0 ];
+            then
+                info "Arca started successfully"
+                break
+            else
+                error "Failed to start arca (rc=$rc); retrying in $ARCA_STARTUP_WAIT s"
+                sleep "$ARCA_STARTUP_WAIT"
+                ARCA_STARTUP_WAIT_TOTAL=$(( ARCA_STARTUP_WAIT_TOTAL + ARCA_STARTUP_WAIT ))
+                if [ $ARCA_STARTUP_WAIT_TOTAL -gt $ARCA_STARTUP_MAX_WAIT ];
+                then
+                    error "Failed to start arca after multiple attempts"
+                    exit 1
+                fi
+            fi
+            ;;
+    esac
+done
+
+# Establish SSH forwarding
+if ! pgrep -qf 'ssh arca.ssh -NfL 42137:';
+then
+    "$ARCA_BIN" ssh -NfL 42137:localhost:42137
+    info "SSH port forwarding to arca established"
+else
+    info "SSH port forwarding already exists"
+fi
+
+# Wait for system update and package install to complete
+ARCA_UPDATE_WAIT_TOTAL=0
+info "Checking update status"
+while true;
+do
+    set +o pipefail
+    STATUS=$("$ARCA_BIN" ssh systemctl --user status arca-apt-install.service | grep 'Active:' | awk '{print $2;}')
+    set -o pipefail
+    case "$STATUS" in
+        "active")
+            info "Update completed"
+            break
+            ;;
+        "activating")
+            info "Update still in progress..."
+            sleep "$ARCA_UPDATE_WAIT"
+            ARCA_UPDATE_WAIT_TOTAL=$(( ARCA_UPDATE_WAIT_TOTAL + ARCA_UPDATE_WAIT ))
+            if [ $ARCA_UPDATE_WAIT_TOTAL -gt $ARCA_UPDATE_MAX_WAIT ];
+            then
+                error "Arca update timed out, giving up"
+                exit 1
+            fi
+            ;;
+        *)
+            error "Update failed"
+            "$ARCA_BIN" ssh systemctl --user status arca-apt-install.service
+            exit 1
+            ;;
+    esac
+done
+
+info "Arca is ready"

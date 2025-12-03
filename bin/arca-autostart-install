@@ -1,0 +1,61 @@
+#!/bin/zsh
+set -euo pipefail
+
+
+echo "[1/5] Ensuring LaunchAgents directory exists ..."
+mkdir -p ~/Library/LaunchAgents
+
+
+echo "[2/5] Creating LaunchAgent plist ..."
+cat > ~/Library/LaunchAgents/com.user.arca.plist <<EOS
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+ "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>Label</key><string>com.user.arca</string>
+
+    <key>ProgramArguments</key>
+    <array>
+      <string>/bin/bash</string>
+      <string>-l</string>
+      <string>$HOME/.local/bin/arca-start</string>
+    </array>
+
+    <key>RunAtLoad</key><true/>
+
+    <key>KeepAlive</key>
+    <dict>
+      <key>NetworkState</key><true/>
+      <key>SuccessfulExit</key><false/>
+    </dict>
+
+    <key>StandardOutPath</key><string>$HOME/Library/Logs/arca.out.log</string>
+    <key>StandardErrorPath</key><string>$HOME/Library/Logs/arca.err.log</string>
+  </dict>
+</plist>
+EOS
+
+
+echo "[3/5] Validating plist ..."
+plutil -lint ~/Library/LaunchAgents/com.user.arca.plist
+
+
+echo "[4/5] Bootstrapping LaunchAgent ..."
+launchctl bootout gui/$(id -u) ~/Library/LaunchAgents/com.user.arca.plist 2>/dev/null || true
+launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.user.arca.plist
+launchctl enable gui/$(id -u)/com.user.arca
+launchctl kickstart -k gui/$(id -u)/com.user.arca
+
+
+echo "[5/5] Setting up log rotation via newsyslog ..."
+sudo tee /etc/newsyslog.d/arca.conf >/dev/null <<EOF
+$HOME/Library/Logs/arca.out.log        $USER:staff    644   5    1024      *     Z
+$HOME/Library/Logs/arca.err.log        $USER:staff    644   5    1024      *     Z
+EOF
+
+echo "✅ Setup complete!"
+
+echo "Verify with: launchctl list | grep com.user.arca"
+echo "View logs with: tail -f ~/Library/Logs/arca.err.log"
+echo "Test logrotate with: sudo newsyslog -f /etc/newsyslog.d/arca.conf -v"
