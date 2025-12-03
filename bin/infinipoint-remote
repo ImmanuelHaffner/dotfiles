@@ -1,9 +1,0 @@
-#!/bin/bash
-
-set -x
-
-# Forward ports and tunnel UDP over TCP.  Fork to background.
-ssh -f -L 7373:localhost:7373 -L 5513:localhost:5513 -L 4004:localhost:4004 -L 22993:localhost:22993 -L 5514:localhost:5514 workstation "socat TCP-LISTEN:5514,reuseaddr,fork UDP:localhost:5513"
-
-# Send UDP over TCP
-socat -T15 UDP-LISTEN:5513,reuseaddr,fork TCP:localhost:5514
