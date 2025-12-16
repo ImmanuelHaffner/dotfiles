@@ -5,9 +5,13 @@ os:
   editAtLine: nvr --remote-send '<C-q>' && nvr --remote-send ':silent tabedit +'{{line}}' '{{filename}}'<cr>'
 promptToReturnFromSubprocess: false
 git:
+  # Do not automatically fetch
+  autoRefresh: false
+  # Do not fetch all remotes
+  fetchAll: false
   commit:
-    autoWrapCommitMessage: true
-    autoWrapWidth: 80
+    autoWrapCommitMessage: false
+    # autoWrapWidth: 80
   overrideGpg: false
   paging:
     colorArg: always
