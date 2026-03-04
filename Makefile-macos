@@ -104,7 +104,7 @@ wezterm:
 
 htop:
 	mkdir -p "${HOME}/.config/htop"
-	install -m 644 htoprc "${HOME}/.config/htop/htoprc"
+	install -m 644 htoprc_macos "${HOME}/.config/htop/htoprc"
 
 erdtree:
 	install -m 644 erdtreerc "${HOME}/.erdtreerc"
