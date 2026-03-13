@@ -6,8 +6,18 @@
     excludesfile = ${HOME}/.gitignore
     autocrlf = input
     pager = delta
+    # Enable FSMonitor, Git's built-in file system monitor daemon.
     fsmonitor = true
+    # This feature adds an extension to the index that remembers the results of the untracked search.
     untrackedcache = true
+    # Use a commit history cache to significantly speed up history operations, such as git log with the --graph option,
+    # because the sorting is the time-consuming action of this command.
+    commitgraph = true
+[feature]
+    # Inform Git that it is managing a large repository.
+    # This setting will enable a newer index file version that is smaller in size and thus gets rewritten faster after
+    # modifying files in the index.
+    manyFiles = true
 [interactive]
     diffFilter = delta --color-only
 [delta]
@@ -75,5 +85,8 @@
 [fetch]
     prune = true
     pruneTags = true
+    # This configuration tells the git gc command (mentioned previously) to update the commit-graph file during
+    # non-trivial garbage collection, which is much less demanding than a full GC operation.
+    writeCommitGraph = true
 [tag]
     sort = version:refname # sort tags as version numbers, i.e. 1.2.0 before 1.10.2
