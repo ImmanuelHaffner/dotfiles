@@ -16,6 +16,9 @@ compile_flags.txt
 
 .cache/
 
+# Git
+.lazygit.yml
+
 # ctags
 .tags
 
@@ -119,3 +122,6 @@ callgrind.out.*
 
 # Bazel
 .bazelproject
+
+# AI / LLM
+memories/
