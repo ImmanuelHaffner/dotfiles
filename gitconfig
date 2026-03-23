@@ -90,3 +90,6 @@
     writeCommitGraph = true
 [tag]
     sort = version:refname # sort tags as version numbers, i.e. 1.2.0 before 1.10.2
+[include]
+    # Machine-local overrides and maintenance repo list (not version-controlled)
+    path = ${HOME}/.gitconfig.local
