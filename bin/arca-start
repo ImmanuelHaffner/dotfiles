@@ -59,9 +59,13 @@ do
     esac
 done
 
+info "Running DBCert"
+dbcert
+
 # Establish SSH forwarding
 establish_port_forwarding 42137
 establish_port_forwarding 42138
+establish_port_forwarding 42139
 
 # Wait for system update and package install to complete
 ARCA_UPDATE_WAIT_TOTAL=0
@@ -93,5 +97,8 @@ do
             ;;
     esac
 done
+
+info "Syncing DBCert"
+dbcert sync-arca
 
 info "Arca is ready"
