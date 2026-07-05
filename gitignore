@@ -13,6 +13,7 @@ project.debug
 compile_commands.json
 compile_flags.txt
 .ltex/
+.prompts/continue-*.md
 
 .cache/
 
