@@ -126,5 +126,7 @@ callgrind.out.*
 # Bazel
 .bazelproject
 
-# AI / LLM
+# AI / LLM / MCP
 memories/
+# MCPHub per-project workspace marker (fff-mcp enrollment); machine-local
+.mcphub/
