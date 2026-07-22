@@ -1,0 +1,40 @@
+#!/bin/bash
+# =============================================================================
+# EXPERIMENTAL FEATURE - UNSUPPORTED
+# =============================================================================
+# This script launches the Databricks internal fork of Metals:
+# https://github.com/databricks-eng/metals
+#
+# This fork contains critical optimizations required to handle our large Bazel
+# build graph. The standard open-source version of Metals is incompatible with
+# the Databricks environment and will fail to export build data.
+#
+# POLICY & SUPPORT:
+# 1. Official support is strictly limited to Cursor (go/cursor/scala).
+# 2. While this script enables the use of our Metals fork with other editors
+#    (Neovim, Helix, etc.), this workflow is not officially supported by Team DevEx.
+# 3. Users choosing to use this script should anticipate incomplete functionality
+#    and potential stability issues.
+#
+# Please direct all inquiries and discussion to the #third-party-ide channel.
+# =============================================================================
+
+SETTINGS_FILE="$HOME/.cursor-server/data/Machine/settings.json"
+
+PINNED_VERSION="2026.02.17-32b459346"
+
+VM_OPTS=$(cat "$SETTINGS_FILE" | jq -r '."metals.serverProperties"[]' 2>/dev/null | tr '\n' ' ')
+
+export COURSIER_REPOSITORIES="https://maven-proxy.dev.databricks.com/|s3://databricks-build-artifacts-staging/metals/release"
+
+JAVA_CMD="/usr/lib/jvm/temurin-25-jdk-amd64/bin/java"
+
+METALS_VERSION="9.9.9-DATABRICKS-LAUNCHER-1"
+METALS_JAR="/opt/databricks/m2/org/scalameta/metals_2.13/${METALS_VERSION}/metals_2.13-${METALS_VERSION}.jar"
+
+exec \
+    $JAVA_CMD $VM_OPTS -Dlauncher.force-version=$PINNED_VERSION \
+    --enable-native-access=ALL-UNNAMED \
+    -classpath "$METALS_JAR" \
+    scala.meta.metals.Main "$@"
+
