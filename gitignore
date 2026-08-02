@@ -128,5 +128,8 @@ callgrind.out.*
 
 # AI / LLM / MCP
 memories/
+# AI coding assistant local config/state (Claude Code, Isaac)
+.claude/
+.isaac/
 # MCPHub per-project workspace marker (fff-mcp enrollment); machine-local
 .mcphub/
