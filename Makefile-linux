@@ -120,9 +120,13 @@ htop:
 erdtree:
 	install -D erdtreerc "${HOME}/.erdtreerc"
 
+# lazygit locates its config through XDG, which resolves to ~/.config/lazygit here but to
+# ~/Library/Application Support/lazygit on macOS.  Ask lazygit for the directory instead of hard-coding
+# it, so an XDG_CONFIG_HOME override is honoured; fall back to the default if lazygit is not installed.
 lazygit:
-	mkdir -p "${HOME}/.config/lazygit"
-	install -D lazygit.yml "${HOME}/.config/lazygit/config.yml"
+	config_dir="$$(lazygit --print-config-dir 2>/dev/null || true)"; \
+            config_dir="$${config_dir:-${HOME}/.config/lazygit}"; \
+            install -D lazygit.yml "$${config_dir}/config.yml"
 
 gpg:
 	mkdir -p "${HOME}/.gnupg"
