@@ -8,6 +8,14 @@ os:
   # concatenates them into a single `-c` argument.
   edit: nvr --nostart -c 'LazygitEdit '{{filename}}
   editAtLine: nvr --nostart -c 'LazygitEdit +'{{line}}' '{{filename}}
+  # Editing a hunk (`E`) has to block until the file is closed again.  nvr stops waiting only when the
+  # buffer is deleted, and it runs `+cmd` / `-c` commands only AFTER that wait, so the jump to the line
+  # has to happen in `-cc` (which runs before the file is opened) while `--remote-wait-silent` merely
+  # re-edits the file `LazygitEdit!` already opened, purely to block on it.
+  editAtLineAndWait: nvr --nostart -cc 'LazygitEdit! +'{{line}}' '{{filename}} --remote-wait-silent {{filename}}
+  # nvr needs no terminal of its own, so spare Lazygit the pointless suspend-and-redraw around `edit`
+  # and `editAtLine`.  `editAtLineAndWait` always runs as a subprocess and ignores this setting.
+  editInTerminal: false
 promptToReturnFromSubprocess: false
 git:
   # Do not automatically fetch
